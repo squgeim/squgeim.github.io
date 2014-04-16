@@ -1,0 +1,198 @@
+/* Reset the browser CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: normal;
+	cursor: default;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote {
+	quotes: none;
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img {
+	border: none;
+}
+
+/*********************************/
+
+@font-face {
+    font-family: 'DejaVuSans-ExtraLight';
+    src: url('fonts/dejavusans-extralight.eot');
+    src: url('fonts/dejavusans-extralight.eot?#iefix') format('embedded-opentype'),
+         url('fonts/dejavusans-extralight.woff') format('woff'),
+         url('fonts/dejavusans-extralight.ttf') format('truetype'),
+         url('fonts/dejavusans-extralight.svg#dejavu_sansextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*********************************/
+
+html {
+    background: #2d2d2d;
+    font-family: "DejaVu Sans", Verdana, sans-serif;
+    font-size: 100%;
+    color: #2d2d2d;
+}
+
+a, a:link, a:active, a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px solid;
+}
+
+#wrapper {
+    width: 900px;
+    margin: 3% auto;
+    position: relative;
+    background: #dedede;
+    box-shadow: #000 0px 0px 20px;
+}
+
+#pic {
+    background: url(images/pic.jpg) no-repeat;
+    margin: 50px -50px;
+    height: 400px;
+    width: 1000px;
+    position: relative;
+    border-radius: 3px;
+}
+
+#pic #intro {
+    height: 400px;
+    width: 400px;
+    background: #dedede;
+    position: absolute;
+    right: 100px;
+    text-align: center;
+    cursor: default;
+}
+
+#intro h1 {
+    font-size: 250%;
+    padding-top: 30px;
+/*
+    text-shadow: #fff 0px 1px 1px;
+*/
+}
+
+#intro h2 {
+    margin-top: -15px;
+    font-size: 200%;
+/*
+    text-shadow: #fff 0px 1px 1px;
+*/
+}
+
+#intro .thin {
+    font-family: DejaVuSans-ExtraLight;
+}
+
+#intro #desc {
+    font-size: 150%;
+    margin-top: 30px;
+}
+
+#intro p {
+    margin: 30px 0px;
+}
+
+#pic #intro .intro-shd {
+    position: absolute;
+    top: -50px;
+    width: 30px;
+    height: 500px;
+}
+#pic #intro #intro-lft {
+    background: url(images/shd_lft.png) no-repeat;
+    left: -30px;
+}
+#pic #intro #intro-rht {
+    background: url(images/shd_rht.png) no-repeat;
+    right: -30px;
+}
+
+#abt {
+    width: 900px;
+    min-height: 300px;
+    background: #efefef;
+}
+
+#abt #title {
+    width: 180px;
+    float:left;
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+#abt #title h1 {
+    font-family: DejaVuSans-ExtraLight;
+    font-size: 300%;
+    line-height: 40px;
+}
+
+#abt #cnt {
+    width: 660px;
+    padding: 20px 20px;
+    margin-left: 200px;
+}
+
+#cnt ul {
+    margin: 10px;
+    list-style: circle;
+}
+
+#contact {
+    padding: 10px;
+    font-size: 80%;
+    background: transparent url(images/cw.png) no-repeat 25px center;
+    cursor: default;
+}
+
+#contact #postal {
+    float: left;
+    width: 440px;
+}
+
+#contact #web {
+    float: right;
+    width: 440px;
+    text-align: right;
+}
