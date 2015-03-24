@@ -86,7 +86,7 @@ a:hover {
 }
 
 #pic {
-    background: url(images/pic.png) no-repeat center;
+    background: url(images/pic.jpg) no-repeat center;
     background-size: cover;
     margin: 50px -50px;
     height: 400px;
