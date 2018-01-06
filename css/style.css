@@ -87,13 +87,23 @@ a:hover {
   margin: 10px;
   margin-right: 30px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .sidebar .picture img {
   border: 5px #ECEFF1 solid;
   box-shadow: #455A64 0 0 5px;
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.sidebar .title {
+  margin: 10px 0;
+}
+
+.sidebar .intro {
+  margin: 30px 0;
 }
 
 .sidebar .title h1 {
@@ -104,6 +114,23 @@ a:hover {
   color: rgba(255, 255, 255, 0.75);
   font-size: 20px;
   font-family: 'PT Sans', sans-serif;
+  margin-top: -10px;
+}
+
+.sidebar .links {
+  margin: 50px 0;
+}
+
+.sidebar .links a,
+.sidebar .links a:link,
+.sidebar .links a:active {
+  color: #CFD8DC;
+  font-size: 28px;
+}
+
+.sidebar .links a:hover {
+  border: none;
+  text-shadow: #000 0 0 5px;
 }
 
 .content {
