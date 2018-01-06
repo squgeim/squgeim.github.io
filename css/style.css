@@ -61,7 +61,6 @@ a, a:link, a:active {
 
 a:hover {
   border: none;
-  text-shadow: #000 0 0 5px;
 }
 
 .wrapper {
@@ -74,8 +73,7 @@ a:hover {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 30%;
-  min-width: 350px;
+  width: 400px;
   background: #263238;
   color: #ECEFF1;
   overflow-y: auto;
@@ -147,7 +145,24 @@ a:hover {
   border: none;
 }
 
-.content {
-  flex: 0.75;
+.right {
+  margin-left: 400px;
 }
 
+.content {
+  margin: 80px 50px;
+}
+
+.content h1 {
+  text-transform: uppercase;
+}
+
+.content .title h1 {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+.content .blog {
+  margin: 50px 0;
+}
