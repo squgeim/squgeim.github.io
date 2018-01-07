@@ -163,7 +163,27 @@ a:hover {
 }
 
 .content .blog {
-  margin: 50px 0;
+  margin: 80px 0;
   font-family: 'Noto Serif', serif;
   line-height: 1.75em;
+  display: flex;
+}
+
+.content .blog .published-date {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: flex-end;
+  margin-right: 20px;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.25em;
+  font-family: monospace;
+}
+
+.content .blog .published-date .date {
+  font-size: 10em;
+  color: rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.25em;
+  text-align: right;
+  width: 80px;
 }
