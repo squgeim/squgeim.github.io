@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Youtube Ad Auto-Skipper",
+    "publishedDate": "2017-05-04",
+    "url": "https://blog.lftechnology.com/youtube-ad-auto-skipper-ea52d4b2f202",
+    "blurb": "“yt ad auto-skipper” is a very *very* simple browser extension that does nothing more than what its name suggests. If the video you are watching has a skippable ad, that ad will be skipped as soon as youtube allows you the option."
+  },
+  {
+    "title": "Distro Dilemma of a Linux Nerd",
+    "publishedDate": "2015-05-25",
+    "url": "http://squgeim.blogspot.com/2015/05/distro-dillema-of-linux-nerd.html",
+    "blurb": "I first saw a linux distro when I was 12. It was a Red Hat that my cousin had brought to install on my desktop (because he was too scared to do it in his own computer). He installed it using five CDs while I watched Anaconda do it's job. When the computer finally booted, we came to know that the whole of my 40GB hard disk had been wiped."
+  },
+  {
+    "title": "squRemote",
+    "publishedDate": "2013-12-22",
+    "url": "http://squgeim.blogspot.com/2013/12/squremote.html",
+    "blurb": "squRemote is a small utility that lets you control the media playing on your computer from you phone. It currently supports Android phone, and Linux and Windows PCs."
+  },
+  {
+    "title": "Real Easy Way To Transfer Files From Linux",
+    "publishedDate": "2013-10-27",
+    "url": "http://squgeim.blogspot.com/2013/10/real-easy-way-to-transfer-files-from.html",
+    "blurb": "Windows has Homegroups that make transferring files on a network real easy. This had me wondering: what do we Linux users have when we need to send a huge file to another computer really quick?"
+  }
+]

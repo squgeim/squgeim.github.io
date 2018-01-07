@@ -1,0 +1,191 @@
+/* Reset the browser CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	font-weight: normal;
+	cursor: default;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote {
+	quotes: none;
+}
+blockquote:before, blockquote:after {
+	content: '';
+	content: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a img {
+	border: none;
+}
+
+/*********************************/
+
+body {
+  background: white;
+  color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
+a, a:link, a:active {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #CFD8DC;
+}
+
+a:hover {
+  border: none;
+}
+
+.wrapper {
+  margin: 0 auto;
+  min-width: 1000px;
+}
+
+.left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  background: #263238;
+  color: #ECEFF1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  box-shadow: #111 0px 0px 5px;
+}
+
+.sidebar {
+  width: 300px;
+  margin: 10px;
+  margin-right: 30px;
+  text-align: center;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .picture img {
+  border: 5px #ECEFF1 solid;
+  box-shadow: #455A64 0 0 5px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.sidebar .title {
+  margin: 10px 0;
+}
+
+.sidebar .intro {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.sidebar .title h1 {
+  font-size: 38px;
+}
+
+.sidebar .title h2 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.sidebar .tags ul li {
+  display: inline-block;
+  background: #78909C;
+  padding: 5px;
+  margin: 2px 0;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: default;
+}
+
+.sidebar .tags,
+.sidebar .links {
+  margin: 30px 0;
+}
+
+.sidebar .links a,
+.sidebar .links a:link,
+.sidebar .links a:active {
+  color: #CFD8DC;
+  font-size: 28px;
+  border: none;
+}
+
+.right {
+  margin-left: 400px;
+}
+
+.content {
+  margin: 80px auto;
+  max-width: 800px;
+  min-width: 600px;
+}
+
+.content h1 {
+  text-transform: uppercase;
+}
+
+.content .title h1 {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+.content .blog {
+  margin: 80px 0;
+  font-family: 'Noto Serif', serif;
+  line-height: 1.75em;
+  display: flex;
+}
+
+.content .blog .published-date {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: flex-end;
+  margin-right: 20px;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.25em;
+  font-family: monospace;
+}
+
+.content .blog .published-date .date {
+  font-size: 10em;
+  color: rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.25em;
+  text-align: right;
+  width: 80px;
+}
