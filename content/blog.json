@@ -1,7 +1,7 @@
 [
   {
     "title": "Unit Testing Recompose HOCs",
-    "publishedDate": "2018-01-18",
+    "publishedDate": "2018-01-08",
     "url": "https://blog.lftechnology.com/unit-testing-recompose-hocs-b00de60aba08",
     "blurb": "I am a huge fan of recompose. It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome. I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, *properly*?"
   },
