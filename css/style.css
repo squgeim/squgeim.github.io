@@ -76,7 +76,6 @@ a:hover {
     position: fixed;
     top: 3%;
     left: 0;
-    right: 0;
     height: 50px;
     display: block;
   }
@@ -84,35 +83,60 @@ a:hover {
   .top .hamburger {
     color: #ECEFF1;
     padding: 10px;
-    background: #263238;
+    background: rgba(28, 32, 37, 0.9);
     display: inline-block;
     cursor: pointer;
   }
+
+  .top .hamburger span.text {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100px;
+    transition: max-width 200ms;
+  }
+
+  .opensidebar .left .hamburger span.text {
+    max-width: 0;
+  }
+
 }
 
 .left {
   background: #263238;
   color: #ECEFF1;
   overflow-y: auto;
+  display: flex;
   flex-direction: row-reverse;
-  box-shadow: #111 0px 0px 5px;
   position: absolute;
-  left: 0;
+  left: -400px;
   top: 0;
   bottom: 0;
-  display: none;
+  width: 400px;
+  max-width: 100%;
+  transition: left 200ms;
+}
+
+.opensidebar .left {
+  left: 0;
+  box-shadow: #111 0px 0px 5px;
+}
+
+.opensidebar .right {
+  z-index: -1;
+  opacity: 0.3;
+  position: fixed;
+  overflow-y: hidden;
+  transition: opacity 200ms;
 }
 
 @media (min-width: 1366px) {
   .left {
-    display: flex;
-    position: fixed;
-    width: 400px;
- }
+    left: 0;
+    box-shadow: #111 0px 0px 5px;
+  }
 }
 
 .sidebar {
-  width: 300px;
   margin: 10px;
   margin-right: 30px;
   text-align: center;
