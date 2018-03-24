@@ -67,23 +67,45 @@ a:hover {
   margin: 0 auto;
 }
 
+.top {
+  display: none;
+}
+
+@media (max-width: 1365px) {
+  .top {
+    position: fixed;
+    top: 3%;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: block;
+  }
+
+  .top .hamburger {
+    color: #ECEFF1;
+    padding: 10px;
+    background: #263238;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
 .left {
   background: #263238;
   color: #ECEFF1;
   overflow-y: auto;
-  display: flex;
   flex-direction: row-reverse;
   box-shadow: #111 0px 0px 5px;
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
-  width: 0;
-  transition: width 200ms;
+  display: none;
 }
 
 @media (min-width: 1366px) {
   .left {
+    display: flex;
     position: fixed;
     width: 400px;
  }
