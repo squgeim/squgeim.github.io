@@ -131,11 +131,15 @@ a:hover {
   transition: opacity 200ms;
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1200px) {
   .left {
     left: 0;
     position: fixed;
     box-shadow: #111 0px 0px 5px;
+  }
+
+  .right {
+    margin-left: 400px;
   }
 }
 
@@ -198,12 +202,6 @@ a:hover {
   color: #CFD8DC;
   font-size: 28px;
   border: none;
-}
-
-@media (min-width: 1366px) {
-  .right {
-    margin-left: 400px;
-  }
 }
 
 .content {
