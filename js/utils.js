@@ -29,7 +29,7 @@
   function fetchBlogs(cb) {
     request('GET', './content/blog.json', function (error, xhr) {
       if (error) {
-        cb(obj);
+        cb(error);
         return;
       }
 
