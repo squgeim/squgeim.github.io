@@ -71,36 +71,6 @@ a:hover {
   display: none;
 }
 
-@media (max-width: 1365px) {
-  .top {
-    position: fixed;
-    top: 3%;
-    left: 0;
-    height: 50px;
-    display: block;
-  }
-
-  .top .hamburger {
-    color: #ECEFF1;
-    padding: 10px;
-    background: rgba(28, 32, 37, 0.9);
-    display: inline-block;
-    cursor: pointer;
-  }
-
-  .top .hamburger span.text {
-    overflow: hidden;
-    display: inline-block;
-    max-width: 100px;
-    transition: max-width 200ms;
-  }
-
-  .opensidebar .left .hamburger span.text {
-    max-width: 0;
-  }
-
-}
-
 .left {
   background: #263238;
   color: #ECEFF1;
@@ -140,6 +110,35 @@ a:hover {
 
   .right {
     margin-left: 400px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .top {
+    position: fixed;
+    top: 3%;
+    left: 0;
+    height: 50px;
+    display: block;
+  }
+
+  .top .hamburger {
+    color: #ECEFF1;
+    padding: 10px;
+    background: rgba(28, 32, 37, 0.9);
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .top .hamburger span.text {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100px;
+    transition: max-width 200ms;
+  }
+
+  .opensidebar .left .hamburger span.text {
+    max-width: 0;
   }
 }
 
