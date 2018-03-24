@@ -1,6 +1,6 @@
 "use strict";
 
-;(function () {
+(function () {
 
   var blogsUl = document.querySelector('#blogsContainer');
 
@@ -67,7 +67,7 @@
     })();
 
     var blurb = (function () {
-      const blurbDiv = document.createElement('div');
+      var blurbDiv = document.createElement('div');
 
       var p = document.createElement('p');
       p.textContent = blog.blurb;
