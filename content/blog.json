@@ -1,5 +1,11 @@
 [
   {
+    "title": "Date-ing JavaScript",
+    "publishedDate": "2018-06-18",
+    "url": "https://blog.lftechnology.com/date-ing-javascript-6203650b752c",
+    "blurb": "There have been some gotchas with working with Date in JavaScript that we’ve had to learn the hard way around. I’m hoping to blow your brains in a controlled manner now instead of having it blown later by a nasty bug."
+  },
+  {
     "title": "Regrets in a 10-month-old React Project",
     "publishedDate": "2018-03-27",
     "url": "https://blog.lftechnology.com/regrets-in-a-10-month-old-react-project-d60eb0255efa",
