@@ -75,7 +75,7 @@
       var readMore = document.createElement('a');
       readMore.href = blog.url;
       readMore.target = '_blank';
-      readMore.textContent = 'Continue Reading';
+      readMore.textContent = 'Read →';
 
       blurbDiv.appendChild(p);
       blurbDiv.appendChild(readMore);
