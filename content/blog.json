@@ -2,19 +2,19 @@
   {
     "title": "Date-ing JavaScript",
     "publishedDate": "2018-06-18",
-    "url": "https://blog.lftechnology.com/date-ing-javascript-6203650b752c",
+    "url": "https://dev.to/squgeim/date-ing-javascript-30k2",
     "blurb": "There have been some gotchas with working with Date in JavaScript that we’ve had to learn the hard way around. I’m hoping to blow your brains in a controlled manner now instead of having it blown later by a nasty bug."
   },
   {
     "title": "Regrets in a 10-month-old React Project",
     "publishedDate": "2018-03-27",
-    "url": "https://blog.lftechnology.com/regrets-in-a-10-month-old-react-project-d60eb0255efa",
+    "url": "https://dev.to/squgeim/regrets-in-a-1-year-old-react-project-4j7j",
     "blurb": "The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the “best practices” are challenged and replaced by the hot new thing at an alarming rate. It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project. These are the things we regret doing or not-doing from the get-go."
   },
   {
     "title": "Unit Testing Recompose HOCs",
     "publishedDate": "2018-01-08",
-    "url": "https://blog.lftechnology.com/unit-testing-recompose-hocs-b00de60aba08",
+    "url": "https://dev.to/squgeim/unit-testing-recompose-hocs-3nh4",
     "blurb": "I am a huge fan of recompose. It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome. I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, *properly*?"
   },
   {
