@@ -1,5 +1,13 @@
 [
   {
+    "title": "TALK: Evolution of Web as a Platform",
+    "publishedDate": "2018-09-06",
+    "url": "https://www.youtube.com/watch?v=UGlC6ICR5Bg",
+    "blurb": "A brief history of how web went from a tool for displaying pages to a platform for building applications, and what's next.",
+    "type": "video",
+    "image": "http://i3.ytimg.com/vi/UGlC6ICR5Bg/maxresdefault.jpg"
+  },
+  {
     "title": "Date-ing JavaScript",
     "publishedDate": "2018-06-18",
     "url": "https://dev.to/squgeim/date-ing-javascript-30k2",
