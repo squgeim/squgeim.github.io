@@ -67,6 +67,7 @@
     })();
 
     var blurb = (function () {
+      var isVideo = blog.type === 'video';
       var blurbDiv = document.createElement('div');
 
       var p = document.createElement('p');
@@ -75,7 +76,7 @@
       var readMore = document.createElement('a');
       readMore.href = blog.url;
       readMore.target = '_blank';
-      readMore.textContent = 'Read →';
+      readMore.textContent = isVideo ? 'Watch →' : 'Read →';
 
       blurbDiv.appendChild(p);
       blurbDiv.appendChild(readMore);
