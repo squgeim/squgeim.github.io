@@ -67,7 +67,6 @@
     })();
 
     var blurb = (function () {
-      var isVideo = blog.type === 'video';
       var blurbDiv = document.createElement('div');
 
       var p = document.createElement('p');
@@ -76,7 +75,17 @@
       var readMore = document.createElement('a');
       readMore.href = blog.url;
       readMore.target = '_blank';
-      readMore.textContent = isVideo ? 'Watch →' : 'Read →';
+      readMore.rel = 'noopener noreferrer';
+      readMore.textContent = (function(blogType) {
+        switch (blogType) {
+          case 'video':
+            return 'Watch →';
+          case 'podcast':
+            return 'Listen →';
+          default:
+            return 'Read →';
+        }
+      })(blog.type);
 
       blurbDiv.appendChild(p);
       blurbDiv.appendChild(readMore);
