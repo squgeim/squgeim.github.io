@@ -21,7 +21,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     clear: both;
     font-weight: normal;
-    cursor: default;
 }
 ol, ul {
     list-style: none;
@@ -179,14 +178,26 @@ body {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
+        transition: 100ms;
+    }
+
+    .blog-item:hover {
+        transform: translateX(-50px);
     }
 
     .blog-item .dateline {
         flex: 1;
+        pointer-events: none;
     }
 
     .blog-card {
         flex: 3;
+        transition: 100ms;
+        box-shadow: rgba(206, 143, 143, 0.5) 0 0;
+    }
+
+    .blog-item:hover .blog-card {
+        box-shadow: rgba(206, 143, 143, 0.5) 50px 0;
     }
 
     .dateline span {
