@@ -47,3 +47,55 @@ a img {
 
 /*********************************/
 
+:root {
+	--font-primary: Lato, sans-serif;
+	--font-header: Raleway, sans-serif;
+	--font-title: Montserrat, sans-serif;
+	--font-mono: "Fira Code", monospace;
+
+	--color-page-bg: #25688D;
+}
+
+body {
+    background: var(--color-page-bg);
+    font-family: var(--font-primary);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*******************************************************************************
+ * LANDING SECTION
+ ******************************************************************************/
+
+.landing {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);;
+    align-items: center;
+	justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.main-picture {
+	width: 250px;
+    height: 250px;
+	border-radius: 50%;
+    background: url(../images/shreya_portrait.jpeg);
+	background-size: cover;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hero-text {
+	font-family: var(--font-title);
+}
+
+.name {
+	font-family: var(--font-header);
+	text-transform: uppercase;
+}
+
+.handle {
+	font-family: var(--font-mono);
+}
