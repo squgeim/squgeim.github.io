@@ -9,72 +9,72 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	background: transparent;
-	border: 0;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
 body {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6 {
-	clear: both;
-	font-weight: normal;
-	cursor: default;
+    clear: both;
+    font-weight: normal;
+    cursor: default;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 del {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 a img {
-	border: none;
+    border: none;
 }
 
 /*********************************/
 
 :root {
-	--font-primary: Lato, sans-serif;
-	--font-header: Raleway, sans-serif;
-	--font-title: Montserrat, sans-serif;
-	--font-mono: "Fira Code", monospace;
+    --font-primary: Lato, sans-serif;
+    --font-header: Raleway, sans-serif;
+    --font-title: Montserrat, sans-serif;
+    --font-mono: "Fira Code", monospace;
 
-	--color-bg-blue: #25688D;
-	--color-bg-red: #62242C;
-	--color-bg-violet: #270F25;
+    --color-bg-blue: #25688D;
+    --color-bg-red: #62242C;
+    --color-bg-violet: #270F25;
 
-	--color-page-bg: var(--color-bg-violet);
-	--color-white-bg: rgb(249, 242, 237);
+    --color-page-bg: var(--color-bg-violet);
+    --color-white-bg: rgb(249, 242, 237);
 
-	--padding-card: 4rem;
-	--margin-section: 20rem;
+    --padding-card: 4rem;
+    --margin-section: 20rem;
 
-	--font-size-large: 2.25em;
-	--font-size-small: 0.75em;
-	--font-size-xsmall: 0.5em;
-	--font-size-text: 1.125em;
+    --font-size-large: 2.25em;
+    --font-size-small: 0.75em;
+    --font-size-xsmall: 0.5em;
+    --font-size-text: 1.125em;
 }
 
 body {
     background: var(--color-page-bg);
     font-family: var(--font-primary);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
 /*******************************************************************************
@@ -82,40 +82,40 @@ body {
  ******************************************************************************/
 
 .landing {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	background: linear-gradient(0deg, rgba(255,255,255,0) 25%, rgba(0,0,0,1) 100%);;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 25%, rgba(0,0,0,1) 100%);;
     align-items: center;
-	justify-content: center;
+    justify-content: center;
     color: white;
     text-align: center;
     margin-bottom: var(--margin-section);
 }
 
 .main-picture {
-	width: 250px;
+    width: 250px;
     height: 250px;
-	border-radius: 50%;
+    border-radius: 50%;
     background: url(../images/shreya_portrait.jpeg);
-	background-size: cover;
+    background-size: cover;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	margin: var(--padding-card);
+    margin: var(--padding-card);
 }
 
 .hero-text {
-	font-family: var(--font-title);
+    font-family: var(--font-title);
 }
 
 .name {
-	font-size: var(--font-size-large);
-	font-family: var(--font-header);
-	text-transform: uppercase;
+    font-size: var(--font-size-large);
+    font-family: var(--font-header);
+    text-transform: uppercase;
 }
 
 .handle {
-	font-family: var(--font-mono);
-	margin-bottom: var(--padding-card);
+    font-family: var(--font-mono);
+    margin-bottom: var(--padding-card);
 }
 
 /*******************************************************************************
@@ -123,44 +123,44 @@ body {
  ******************************************************************************/
 
 .blogs {
-	margin-bottom: var(--margin-section);
+    margin-bottom: var(--margin-section);
 }
 
 .blog-item .dateline {
-	color: var(--color-white-bg);
-	text-align: right;
-	font-family: var(--font-mono);
+    color: var(--color-white-bg);
+    text-align: right;
+    font-family: var(--font-mono);
 }
 
 .dateline span {
-	line-height: 1em;
+    line-height: 1em;
 }
 
 .dateline .date-day {
-	display: block;
-	font-size: 10em;
-	overflow: hidden;
-	padding-right: 0.1em;
-	letter-spacing: -0.3em;
+    display: block;
+    font-size: 10em;
+    overflow: hidden;
+    padding-right: 0.1em;
+    letter-spacing: -0.3em;
     margin-bottom: -0.16em;
     font-weight: bold;
 }
 
 .dateline .date-month,
 .dateline .date-year {
-	margin-right: 2px;
+    margin-right: 2px;
 }
 
 .blog-card {
-	color: black;
-	background: var(--color-white-bg);
+    color: black;
+    background: var(--color-white-bg);
 }
 
 .blog-card>a {
-	display: inline-block;
-	text-decoration: none;
+    display: inline-block;
+    text-decoration: none;
     color: inherit;
-	padding: var(--padding-card);
+    padding: var(--padding-card);
 }
 
 .blog-card>a>* {
@@ -168,39 +168,39 @@ body {
 }
 
 .blog-card h1 {
-	color: var(--color-page-bg);
-	font-family: var(--font-header);
+    color: var(--color-page-bg);
+    font-family: var(--font-header);
     font-size: var(--font-size-large);
-	line-height: 1.3;
+    line-height: 1.3;
 }
 
 @media(min-width: 768px) {
-	.blog-item {
-		display: flex;
-		flex-direction: row;
+    .blog-item {
+        display: flex;
+        flex-direction: row;
         align-items: flex-end;
-	}
+    }
 
-	.blog-item .dateline {
-		flex: 1;
-	}
+    .blog-item .dateline {
+        flex: 1;
+    }
 
-	.blog-card {
-		flex: 3;
-	}
+    .blog-card {
+        flex: 3;
+    }
 
-	.dateline span {
-		display: block;
+    .dateline span {
+        display: block;
         line-height: 1em;
-	}
+    }
 
-	.blog-card p {
-		font-size: var(--font-size-text);
-	}
+    .blog-card p {
+        font-size: var(--font-size-text);
+    }
 
-	.blog-card h1 {
+    .blog-card h1 {
         margin-bottom: calc(0.75 * var(--padding-card));
-	}
+    }
 }
 
 /*******************************************************************************
@@ -208,50 +208,50 @@ body {
  ******************************************************************************/
 
 .footer {
-	background: var(--color-white-bg);
-	padding: var(--padding-card);
+    background: var(--color-white-bg);
+    padding: var(--padding-card);
 }
 
 .footer ul {
-	font-family: var(--font-mono);
-	font-size: var(--font-size-small);
-	text-transform: uppercase;
-	padding: var(--padding-card) 0;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    padding: var(--padding-card) 0;
     color: black;
 }
 
 .footer ul li a {
-	color: inherit;
-	text-decoration: none;
-	line-height: 2em;
+    color: inherit;
+    text-decoration: none;
+    line-height: 2em;
 }
 
 .footer i {
-	width: 1.25em;
+    width: 1.25em;
     display: inline-block;
-	text-align: center;
+    text-align: center;
 }
 
 .footer .copyright {
-	margin: 0;
-	font-size: var(--font-size-xsmall);
-	padding-top: var(--padding-card);
+    margin: 0;
+    font-size: var(--font-size-xsmall);
+    padding-top: var(--padding-card);
 }
 
 @media (min-width: 768px) {
-	.footer {
+    .footer {
         --font-size-small: 1em;
-		--font-size-xsmall: var(--font-size-small);
-	}
+        --font-size-xsmall: var(--font-size-small);
+    }
 
-	.footer ul {
-		display: flex;
+    .footer ul {
+        display: flex;
         flex-direction: row;
-		align-items: center;
-		justify-content: space-evenly;
-	}
+        align-items: center;
+        justify-content: space-evenly;
+    }
 
-	.footer .copyright {
-		text-align: center;
-	}
+    .footer .copyright {
+        text-align: center;
+    }
 }
