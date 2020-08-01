@@ -51,6 +51,7 @@ a img {
     --font-header: Raleway, sans-serif;
     --font-title: Montserrat, sans-serif;
     --font-mono: "Fira Code", monospace;
+    --font-icon: fontello;
 
     --color-bg-blue: #25688D;
     --color-bg-red: #62242C;
@@ -192,12 +193,23 @@ body {
 
     .blog-card {
         flex: 3;
-        transition: 100ms;
+        position: relative;
         box-shadow: rgba(206, 143, 143, 0.5) 0 0;
     }
 
     .blog-item:hover .blog-card {
         box-shadow: rgba(206, 143, 143, 0.5) 50px 0;
+    }
+
+    .blog-card:after {
+        position: absolute;
+        font-family: var(--font-icon);
+        content: "\f08e";
+        color: white;
+        right: -50px;
+        width: 50px;
+        bottom: 10px;
+        text-align: center;
     }
 
     .dateline span {
