@@ -53,11 +53,17 @@ a img {
 	--font-title: Montserrat, sans-serif;
 	--font-mono: "Fira Code", monospace;
 
-	--color-page-bg: #25688D;
-	--color-white-bg: rgba(255,255,255,0.7);
+	--color-bg-blue: #25688D;
+	--color-bg-red: #62242C;
+	--color-bg-violet: #270F25;
+
+	--color-page-bg: var(--color-bg-violet);
+	--color-white-bg: rgba(255,255,255,0.85);
 
 	--padding-card: 2rem;
 	--margin-section: 5rem;
+
+	--font-size-text: 0.75em;
 }
 
 body {
@@ -114,7 +120,7 @@ body {
 }
 
 .blog-item .dateline {
-	color: white;
+	color: var(--color-white-bg);
 	text-align: right;
 	font-family: var(--font-mono);
 }
@@ -122,9 +128,9 @@ body {
 .dateline .date-day {
 	display: block;
 	font-size: 5em;
-	line-height: 0.6em;
 	letter-spacing: -0.3em;
 	margin-right: 10px;
+    font-weight: bold;
 }
 
 .blog-card {
@@ -137,14 +143,64 @@ body {
 	text-decoration: none;
     color: inherit;
 	padding: var(--padding-card);
+	max-width: 700px;
 }
 
 .blog-card h1 {
+	color: var(--color-page-bg);
 	font-family: var(--font-header);
 }
 
 .blog-card p {
 	font-size: 0.75em;
+}
+
+@media(min-width: 768px) {
+	.blog-item {
+		display: flex;
+		flex-direction: row;
+        align-items: flex-end;
+	}
+
+	.blog-item .dateline {
+		flex: 1;
+	}
+
+	.blog-card {
+		flex: 3;
+	}
+
+	.dateline span {
+		display: block;
+        line-height: 1em;
+	}
+
+	.dateline .date-day {
+		overflow: hidden;
+        font-size: 10em;
+		padding-right: 15px;
+		margin-right: 0;
+        margin-bottom: -0.16em;
+	}
+
+	.dateline .date-month,
+	.dateline .date-year {
+		margin-right: 2px;
+		font-size: var(--font-size-text);
+	}
+
+	.blog-card {
+		padding: 2em;
+	}
+
+	.blog-card p {
+		font-size: 1.125em;
+	}
+
+	.blog-card h1 {
+		font-size: 2.25em;
+        margin-bottom: 1em;
+	}
 }
 
 /*******************************************************************************
