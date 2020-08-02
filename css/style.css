@@ -63,7 +63,9 @@ a img {
     --padding-card: 4rem;
     --margin-section: 20rem;
 
+    --font-size-xlarge: 3em;
     --font-size-large: 2.25em;
+    --font-size-bigger: 1.5em;
     --font-size-small: 0.75em;
     --font-size-xsmall: 0.5em;
     --font-size-text: 1.125em;
@@ -86,7 +88,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(255,255,255,0) 25%, rgba(0,0,0,1) 100%);;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgba(0,0,0,1) 100%);;
     align-items: center;
     justify-content: center;
     color: white;
@@ -106,10 +108,12 @@ body {
 
 .hero-text {
     font-family: var(--font-title);
+    font-size: var(--font-size-bigger);
+    line-height: 1em;
 }
 
 .name {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xlarge);
     font-family: var(--font-header);
     text-transform: uppercase;
 }
