@@ -124,7 +124,7 @@ body {
     margin-bottom: var(--padding-card);
 }
 
-@media (min-width: var(--breakpoint-md)) {
+@media (min-width: 768px) {
     .hero-text {
         font-size: var(--font-size-bigger);
         line-height: 1em;
@@ -191,7 +191,7 @@ body {
     line-height: 1.3;
 }
 
-@media(min-width: var(--breakpoint-md)) {
+@media (min-width: 768px) {
     .blog-item {
         display: flex;
         flex-direction: row;
@@ -278,7 +278,7 @@ body {
     padding-top: var(--padding-card);
 }
 
-@media (min-width: var(--breakpoint-md)) {
+@media (min-width: 768px) {
     .footer {
         --font-size-small: 1em;
         --font-size-xsmall: var(--font-size-small);
