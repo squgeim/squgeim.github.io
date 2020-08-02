@@ -39,7 +39,7 @@ function BlogCard(blog) {
 
 const blogsContainer = document.querySelector('#blogsContainer');
 
-fetch("https://squgeim.github.io/content/blog.json")
+fetch("./content/blog.json")
   .then(response => response.json())
   .then(blogs => {
     render(
