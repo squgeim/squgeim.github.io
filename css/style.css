@@ -102,8 +102,6 @@ body {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background: url(../images/shreya_portrait.jpeg);
-    background-size: cover;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 1rem;
 }
