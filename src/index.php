@@ -34,7 +34,33 @@
     <h1 class="name">Shreya Dahal</h1>
     <span class="handle">@squgeim</span>
   </section>
-  <section id="blogsContainer" class="blogs"></section>
+  <section id="blogsContainer" class="blogs">
+
+<?php
+$blogFile = file_get_contents('./src/content/blog.json');
+$blogs = json_decode($blogFile);
+
+foreach ($blogs as $blog) {
+  $blogDate = new DateTime($blog->publishedDate);
+
+  print("
+    <div class=\"blog-item\">
+      <div class=\"dateline\">
+        <span class=\"date-day\">" . $blogDate->format("j") . "</span>
+        <span class=\"date-month\">" . $blogDate->format("M") . "</span>
+        <span class=\"date-year\">" . $blogDate->format("Y") . "</span>
+      </div>
+      <div class=\"blog-card\">
+        <a href=\"$blog->url\">
+          <h1>$blog->title</h1>
+          <p>$blog->blurb</p>
+        </a>
+      </div>
+    </div>");
+}
+?>
+
+  </section>
   <section class="footer">
     <ul>
       <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
