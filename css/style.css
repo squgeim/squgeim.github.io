@@ -390,7 +390,7 @@ code {
 }
 
 .back-button {
-  position: fixed;
+  position: absolute;
   left: 50px;
   top: 50px;
   text-decoration: none;
@@ -408,4 +408,10 @@ code {
   color: var(--color-page-bg);
   display: flex;
   letter-spacing: 7px;
+}
+
+@media (min-width: 768px) {
+  .back-button {
+    position: fixed;
+  }
 }
