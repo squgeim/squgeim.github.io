@@ -16,6 +16,7 @@ include('./src/fragments/header.php');
   <section id="blogsContainer" class="blogs flex-col">
 <?php
   $filesInDir = scandir('./src/content');
+  $blogs = [];
 
   foreach ($filesInDir as $filename) {
     if (substr($filename, -3) != '.md') {
@@ -23,9 +24,18 @@ include('./src/fragments/header.php');
     }
 
     $blog = Utils\getBlog(file_get_contents('./src/content/' . $filename));
+    $blog['filename'] = substr($filename, 0, strrpos($filename, '.', -1)) . '.html';
 
-    $url = substr($filename, 0, strrpos($filename, '.', -1)) . '.html';
+    $blogs[] = $blog;
+  }
 
+  function sortingFunc($a, $b) {
+    return $a['date'] < $b['date'];
+  }
+
+  usort($blogs, "sortingFunc");
+
+  foreach ($blogs as $blog) {
     printf('
       <div class="blog-item">
         <div class="dateline">
@@ -45,7 +55,7 @@ include('./src/fragments/header.php');
       $blog['date']->format("j"),
       $blog['date']->format("M"),
       $blog['date']->format("Y"),
-      '/blogs/' . $url,
+      '/blogs/' . $blog['filename'],
       $blog['title'],
       $blog['blurb']
     );
