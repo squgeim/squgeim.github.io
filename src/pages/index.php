@@ -13,7 +13,7 @@ include('./src/fragments/header.php');
     <span class="handle">@squgeim</span>
   </section>
 
-  <section id="blogsContainer" class="blogs">
+  <section id="blogsContainer" class="blogs flex-col">
 <?php
   $filesInDir = scandir('./src/content');
 
