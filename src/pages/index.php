@@ -34,10 +34,12 @@ include('./src/fragments/header.php');
           <span class="date-year">%s</span>
         </div>
         <div class="blog-card">
-          <a href="%s">
-            <h1>%s</h1>
-            <p>%s</p>
-          </a>
+          <div>
+            <a href="%s">
+              <h1>%s</h1>
+              <p>%s</p>
+            </a>
+          </div>
         </div>
       </div>',
       $blog['date']->format("j"),

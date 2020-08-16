@@ -82,6 +82,10 @@ body {
     overflow-x: hidden;
 }
 
+code {
+  font-family: var(--font-mono);
+}
+
 /*******************************************************************************
  * LANDING SECTION
  ******************************************************************************/
@@ -173,22 +177,27 @@ body {
     background: var(--color-white-bg);
 }
 
-.blog-card>a {
-    display: inline-block;
+.blog-card>div>a {
     text-decoration: none;
     color: inherit;
-    padding: var(--padding-card);
 }
 
-.blog-card>a>* {
+.blog-card>div {
+    display: inline-block;
+    padding: var(--padding-card);
     max-width: 75ch;
 }
 
-.blog-card h1 {
+.blog-card h1,
+.blog-card h2,
+.blog-card h3 {
     color: var(--color-page-bg);
     font-family: var(--font-header);
-    font-size: var(--font-size-large);
     line-height: 1.3;
+}
+
+.blog-card h1 {
+    font-size: var(--font-size-large);
 }
 
 @media (min-width: 768px) {
@@ -218,7 +227,7 @@ body {
         box-shadow: rgba(206, 143, 143, 0.5) 50px 0;
     }
 
-    .blog-card:after {
+    .blog-card.is-external-link:after {
         position: absolute;
         font-family: var(--font-icon);
         content: "\f08e";
@@ -300,12 +309,55 @@ body {
  * BLOG PAGE
  ******************************************************************************/
 
+.blogs {
+  display: flex;
+}
+
 .blogs div:first-of-type {
     flex: 1;
 }
 
 .blog-container {
-    margin-bottom: var(--margin-section);
-    background: var(--color-white-bg);
-    flex: 2;
+    flex: 3;
+}
+
+.reading-view .blog-card {
+    font-size: var(--font-size-text)
+}
+
+.blog-card pre {
+  background: var(--color-page-bg);
+  color: white;
+  margin: 0 calc(-1 * var(--padding-card));
+  padding: var(--padding-card);
+  width: 100vw;
+  max-width: calc(100vw - var(--padding-card) - 1.2rem);
+  overflow: scroll;
+}
+
+.reading-view .blog-card>div {
+  padding: 1em;
+}
+
+@media (min-width: 768px) {
+  .reading-view .blog-card>div {
+    padding: var(--padding-card);
+  }
+
+  .reading-view .blog-item {
+    align-items: flex-start;
+  }
+
+  .reading-view .blog-item:hover {
+    transform: none;
+  }
+
+  .reading-view .blog-card h1 {
+    margin: calc(0.75 * var(--padding-card)) 0;
+  }
+
+  .reading-view .blog-card h2,
+  .reading-view .blog-card h3 {
+    margin: calc(0.60 * var(--padding-card)) 0;
+  }
 }
