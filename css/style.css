@@ -330,8 +330,7 @@ code {
 }
 
 .blog-card pre {
-  background: var(--color-page-bg);
-  color: white;
+  background: rgba(0,0,0,0.1);
   margin: 0 calc(-1 * var(--padding-card));
   padding: var(--padding-card);
   width: 100vw;
