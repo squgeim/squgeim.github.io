@@ -388,3 +388,24 @@ code {
     margin: calc(0.60 * var(--padding-card)) 0;
   }
 }
+
+.back-button {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  text-decoration: none;
+}
+
+.back-button::after {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: var(--color-white-bg);
+  content: '◀';
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: var(--color-page-bg);
+  display: flex;
+  letter-spacing: 7px;
+}

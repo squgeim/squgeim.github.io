@@ -9,6 +9,8 @@ $blog = Utils\getBlog(file_get_contents($argv[1]));
 $blogContent = $Parsedown->text($blog['content']);
 ?>
 
+<a class="back-button" href="/" id="backBtn"></a>
+
 <h1 class="blog-title"><?=$blog['title']?></h1>
 <section class="blogs reading-view">
   <div class="blog-item">
@@ -30,5 +32,15 @@ $blogContent = $Parsedown->text($blog['content']);
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  document.querySelector('#backBtn').addEventListener('click', e => {
+    if (document.referrer.includes(location.host)) {
+      e.preventDefault();
+
+      return history.back();
+    }
+  });
+</script>
 
 <?php include('./src/fragments/footer.php'); ?>
