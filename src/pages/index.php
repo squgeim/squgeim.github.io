@@ -17,12 +17,14 @@ include('./src/fragments/header.php');
 <?php
   $filesInDir = scandir('./src/content');
 
-  foreach ($filesInDir as $blog) {
-    if (substr($blog, -3) != '.md') {
+  foreach ($filesInDir as $filename) {
+    if (substr($filename, -3) != '.md') {
       continue;
     }
 
-    $blog = Utils\getBlogDesc(file_get_contents('./src/content/' . $blog));
+    $blog = Utils\getBlog(file_get_contents('./src/content/' . $filename));
+
+    $url = substr($filename, 0, strrpos($filename, '.', -1)) . '.html';
 
     printf('
       <div class="blog-item">
@@ -41,7 +43,7 @@ include('./src/fragments/header.php');
       $blog['date']->format("j"),
       $blog['date']->format("M"),
       $blog['date']->format("Y"),
-      $blog['url'],
+      '/blogs/' . $url,
       $blog['title'],
       $blog['blurb']
     );

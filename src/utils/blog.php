@@ -1,7 +1,7 @@
 <?php
 namespace Utils;
 
-function getBlogDesc($mdContent) {
+function getBlog($mdContent) {
   list($desc, $blog) = explode("\n\n", $mdContent, 2);
 
   $xml = new \SimpleXMLElement($desc);
@@ -12,7 +12,8 @@ function getBlogDesc($mdContent) {
     "url" => (string)$xml->attributes()->url,
     "tags" => (string)$xml->attributes()->tags,
     "type" => (string)$xml->attributes()->type,
-    "blurb" => (string)$xml
+    "blurb" => (string)$xml,
+    "content" => $blog
   );
 }
 

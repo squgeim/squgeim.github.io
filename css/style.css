@@ -295,3 +295,17 @@ body {
         text-align: center;
     }
 }
+
+/*******************************************************************************
+ * BLOG PAGE
+ ******************************************************************************/
+
+.blogs div:first-of-type {
+    flex: 1;
+}
+
+.blog-container {
+    margin-bottom: var(--margin-section);
+    background: var(--color-white-bg);
+    flex: 2;
+}
