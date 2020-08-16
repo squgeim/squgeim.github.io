@@ -63,12 +63,12 @@ a img {
     --padding-card: 4rem;
     --margin-section: 20rem;
 
-    --font-size-xlarge: 3em;
-    --font-size-large: 2.25em;
-    --font-size-bigger: 1.5em;
-    --font-size-small: 0.75em;
-    --font-size-xsmall: 0.5em;
-    --font-size-text: 1.125em;
+    --font-size-xlarge: 3rem;
+    --font-size-large: 2.25rem;
+    --font-size-bigger: 1.5rem;
+    --font-size-small: 0.75rem;
+    --font-size-xsmall: 0.5rem;
+    --font-size-text: 1.125rem;
 
     --breakpoint-md: 768px;
 }
@@ -189,7 +189,7 @@ code {
 .blog-card>div {
     display: inline-block;
     padding: var(--padding-card);
-    max-width: 75ch;
+    max-width: 70ch;
 }
 
 .blog-card h1,
@@ -336,6 +336,10 @@ code {
   width: 100vw;
   max-width: calc(100vw - var(--padding-card) - 1.2rem);
   overflow: scroll;
+}
+
+.blog-card pre code {
+  font-size: var(--font-size-text);
 }
 
 .reading-view .blog-card>div {
