@@ -339,7 +339,34 @@ code {
   padding: 1em;
 }
 
+.reading-view a:link {
+  color: var(--color-bg-blue);
+}
+
+.reading-view a:visited {
+  color: var(--color-bg-red);
+}
+
+.blog-title {
+  color: white;
+  font-size: 4em;
+  text-align: left;
+  margin-top: var(--margin-section);
+  line-height: 1em;
+  text-align: center;
+  max-width: 20ch;
+}
+
 @media (min-width: 768px) {
+  .blog-title {
+    padding-left: 30%;
+    text-align: left;
+  }
+
+  .reading-view {
+    position: relative;
+  }
+
   .reading-view .blog-card>div {
     padding: var(--padding-card);
   }

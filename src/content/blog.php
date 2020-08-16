@@ -9,6 +9,7 @@ $blog = Utils\getBlog(file_get_contents($argv[1]));
 $blogContent = $Parsedown->text($blog['content']);
 ?>
 
+<h1 class="blog-title"><?=$blog['title']?></h1>
 <section class="blogs reading-view">
   <div class="blog-item">
     <div class="dateline">
@@ -24,7 +25,6 @@ $blogContent = $Parsedown->text($blog['content']);
     </div>
     <div class="blog-card">
       <div>
-        <h1><?=$blog['title']?></h1>
         <?=$blogContent?>
       </div>
     </div>
