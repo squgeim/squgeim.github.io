@@ -1,6 +1,9 @@
 <?php
 include('./src/utils/blog.php');
+
 include('./src/fragments/header.php');
+
+$blogs = Utils\getBlogsList();
 ?>
 
   <section class="landing">
@@ -14,53 +17,23 @@ include('./src/fragments/header.php');
   </section>
 
   <section id="blogsContainer" class="blogs flex-col">
-<?php
-  $filesInDir = scandir('./src/content');
-  $blogs = [];
-
-  foreach ($filesInDir as $filename) {
-    if (substr($filename, -3) != '.md') {
-      continue;
-    }
-
-    $blog = Utils\getBlog(file_get_contents('./src/content/' . $filename));
-    $blog['filename'] = substr($filename, 0, strrpos($filename, '.', -1)) . '.html';
-
-    $blogs[] = $blog;
-  }
-
-  function sortingFunc($a, $b) {
-    return $a['date'] < $b['date'];
-  }
-
-  usort($blogs, "sortingFunc");
-
-  foreach ($blogs as $blog) {
-    printf('
-      <div class="blog-item">
-        <div class="dateline">
-          <span class="date-day">%s</span>
-          <span class="date-month">%s</span>
-          <span class="date-year">%s</span>
+<?php foreach ($blogs as $blog): ?>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day"><?=$blog['date']->format("j")?></span>
+        <span class="date-month"><?=$blog['date']->format("M")?></span>
+        <span class="date-year"><?=$blog['date']->format("Y")?></span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="<?='/blogs/' . $blog['filename']?>">
+            <h1><?=$blog['title']?></h1>
+          </a>
+          <p><?=$blog['blurb']?></p>
         </div>
-        <div class="blog-card">
-          <div>
-            <a href="%s">
-              <h1>%s</h1>
-              <p>%s</p>
-            </a>
-          </div>
-        </div>
-      </div>',
-      $blog['date']->format("j"),
-      $blog['date']->format("M"),
-      $blog['date']->format("Y"),
-      '/blogs/' . $blog['filename'],
-      $blog['title'],
-      $blog['blurb']
-    );
-  }
-?>
+      </div>
+    </div>
+<?php endforeach; ?>
   </section>
 
 <?php include('./src/fragments/footer.php'); ?>

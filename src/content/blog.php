@@ -1,12 +1,9 @@
 <?php
-include('./vendor/parsedown/Parsedown.php');
 include('./src/utils/blog.php');
 
 include('./src/fragments/header.php');
 
-$Parsedown = new Parsedown();
 $blog = Utils\getBlog(file_get_contents($argv[1]));
-$blogContent = $Parsedown->text($blog['content']);
 ?>
 
 <a class="back-button" href="/" id="backBtn"></a>
@@ -27,7 +24,7 @@ $blogContent = $Parsedown->text($blog['content']);
     </div>
     <div class="blog-card">
       <div>
-        <?=$blogContent?>
+        <?=$blog['content']?>
       </div>
     </div>
   </div>
