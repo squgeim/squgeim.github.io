@@ -409,6 +409,11 @@ code {
   justify-content: center;
   display: flex;
   z-index: 999;
+  opacity: 50%;
+}
+
+.back-button:hover {
+  opacity: 100%;
 }
 
 .back-button::after {
