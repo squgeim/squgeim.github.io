@@ -57,7 +57,7 @@ a img {
     --color-bg-red: #62242C;
     --color-bg-violet: #270F25;
 
-    --color-page-bg: var(--color-bg-violet);
+    --color-page-bg: linear-gradient(0deg, var(--color-bg-violet) 50%, black 100%);;
     --color-white-bg: rgb(249, 242, 237);
 
     --padding-card: 4rem;
@@ -84,6 +84,7 @@ body {
 
 code {
   font-family: var(--font-mono);
+  font-size: inherit;
 }
 
 .flex-col {
@@ -98,7 +99,6 @@ code {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(255,255,255,0) 10%, rgba(0,0,0,1) 100%);;
     align-items: center;
     justify-content: flex-end;
     color: white;
@@ -195,7 +195,7 @@ code {
 .blog-card h1,
 .blog-card h2,
 .blog-card h3 {
-    color: var(--color-page-bg);
+    color: var(--color-bg-violet);
     font-family: var(--font-header);
     line-height: 1.3;
 }
@@ -326,7 +326,8 @@ code {
 }
 
 .reading-view .blog-card {
-    font-size: var(--font-size-text)
+    font-size: var(--font-size-text);
+    overflow-x: hidden;
 }
 
 .blog-card pre {
@@ -336,10 +337,6 @@ code {
   width: 100vw;
   max-width: calc(100vw - var(--padding-card) - 1.2rem);
   overflow: scroll;
-}
-
-.blog-card pre code {
-  font-size: var(--font-size-text);
 }
 
 .reading-view .blog-card>div {
@@ -419,7 +416,7 @@ code {
 .back-button::after {
   content: '◀';
   font-size: 40px;
-  color: var(--color-page-bg);
+  color: var(--color-bg-violet);
   letter-spacing: 7px;
 }
 
