@@ -3,7 +3,8 @@
   publishedDate="2019-06-28"
   url="https://dev.to/squgeim/-3pig"
 >
-I was scrolling through Stack Overflow's Job section and an entry caught my eye.
+I was scrolling through Stack Overflow's Job section and an entry caught my eye. The
+text looked like it was in a monospace font--but it wasn't. I went down a rabbit hole trying to figure out what was happening.
 </Blog>
 
 
