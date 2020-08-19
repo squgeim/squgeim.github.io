@@ -209,11 +209,14 @@ code {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        transition: 500ms;
     }
 
-    .blog-item:hover {
-      margin: 1em 0;
+    .blog-item .dateline .date-day {
+        transition: letter-spacing 500ms;
+    }
+
+    .blog-item:hover .dateline .date-day {
+        letter-spacing: -0.2em;
     }
 
     .blog-item .dateline {
@@ -225,10 +228,6 @@ code {
         flex: 3;
         position: relative;
         box-shadow: rgba(206, 143, 143, 0.5) 0 0;
-    }
-
-    .blog-item:hover .blog-card {
-        /*box-shadow: rgba(206, 143, 143, 0.5) 50px 0;*/
     }
 
     .blog-card.is-external-link:after {
