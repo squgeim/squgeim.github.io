@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>squgeim's blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
+  <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
+  <link href="/css/style.css" type="text/css" rel="stylesheet" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129163239-1');
+  </script>
+</head>
+
+<body>
+
+<a class="back-button" href="/" id="backBtn"></a>
+
+<h1 class="blog-title">Regrets in a 1-year-old React project</h1>
+<section class="blogs reading-view">
+  <div class="blog-item">
+    <div class="dateline">
+      <span class="date-day">
+        27      </span>
+      <span class="date-month">
+        Mar      </span>
+      <span class="date-year">
+        2018      </span>
+    </div>
+    <div class="blog-card">
+      <div>
+        <p>The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the “best practices” are challenged and replaced by the hot new thing at an alarming rate.</p>
+<p>It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.</p>
+<p>These are the things we regret doing or not-doing from the get-go:</p>
+<h3><strong>1. Not Using Selectors</strong></h3>
+<p>We should have never touched the Redux Store without a <a href="https://stackoverflow.com/questions/38674200/what-are-selectors-in-redux">selector</a>. The reasoning was simple at the beginning: if you need specialized methods to extract data from your store, your store is too complicated. Simplify that instead; hiding that complexity will only fester it.</p>
+<p>But we failed to see the other reason why having selectors is essential (and I feel this is not advertised enough): refactoring. Accept it — the store you have designed right now is not the store you will be using a year from now. Requirements change, designs change, new features are added, features are removed; software evolves, and your store needs to evolve with it.</p>
+<p>Turns out, having a single interface that defines exactly what is required out of the store makes refactoring simple. The view (even your container components) do not need to know how things are structured in the store, all they care about is what data they receive.</p>
+<p>Also, it becomes effortless to write unit tests. As long as the selector returns the same data, you can change the store all you like.</p>
+<h3><strong>2. Not writing PropTypes for Recompose HOC chains</strong></h3>
+<p>We heavily use Recompose. Our presentational components are wrapped with a composed chain of Recompose HOCs that build the container component. They were very simple at the beginning; just a Redux connect and a couple of withProps and withHandlers.</p>
+<p>The HOC chain looks incredible, data flows down like a waterfall, but happens when you move things around? It is very easy to lose track of what flows where. You could remove or change a prop in one HOC, and not realize some other HOC several components down depended on it.</p>
+<p>An easy way to get around this is to define clear <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">PropTypes</a> (or use a type system like Flow or TypeScript) for each HOC. Writing PropTypes on components come easy, and <a href="https://github.com/yannickcr/eslint-plugin-react">most linters check for this</a>, but writing PropTypes on Recompose HOCs are not that intuitive and, as far as I know, there are no lint rules to check for it. <a href="https://github.com/acdlite/recompose/issues/592">There is no clear best practice for it yet</a>. This just has to be a project convention and needs to be enforced in peer code review.</p>
+<h3><strong>3. Ceding too much control to a library</strong></h3>
+<p>“We’re just building a quick MVP to get going. We don’t need to spend much time with fancy designs, let’s just use a popular component library” — that’s how most projects start, and before you know it you are serving thousands of users and guess what, a fancy design becomes a must have.</p>
+<p>We started the project with <a href="http://www.material-ui.com/#/">Material UI</a>. It was awesome. You have every component you’ll ever need, you have fancy animations and it is easy to build with. Then, we outgrew our “MVP” phase. We have new complex features that can’t be done with the simple Material UI components. The small performance costs of using inline style start adding up.</p>
+<p>Then, the version of Material UI we were using got discontinued. The new version would be a rewrite and would bring much needed performance improvements. All the issues in GitHub for the older version of Material UI <a href="https://github.com/mui-org/material-ui/issues?q=label%3Av0.x+is%3Aclosed">were closed</a>.</p>
+<p>So we have a relatively large application that is stuck with an old library, with performance issues, that can’t update to the latest version of React.</p>
+<p>What could we do? Either stop everything and upgrade to the newer version. But what about all the components that were dropped in the new version? Find new components to replace them and refactor our code to work with those? Or just drop Material UI and write custom components for everything?</p>
+<p>We can’t afford to do either of them. We plan to refactor the code in phases to remove larger dependencies, and once it is simple enough, we’ll upgrade to the newer version (once it comes out of beta, that is).</p>
+<h3><strong>4. Not using CSS-in-JS</strong></h3>
+<p>As I said, we started with Material UI, and that was enough for us. We rarely had to customize any of the components, and whenever we needed to, we followed the official advice and used inline styles (this is because Material UI internally uses inline styles).</p>
+<p>Also, I advocate the horizontal separation of concerns that React proposes and do not like having one component broken down into multiple files (separate CSS and JS files).</p>
+<p>The reason we didn’t have CSS-in-JS from the beginning is that we didn’t need it at the time, and whatever little performance cost we added with inline styles was still shadowed by what Material UI was doing. It was also because the CSS-in-JS community conflicted a few ways of doing things and a de facto library had not yet appeared (still hasn’t).</p>
+<p>Now that we are migrating away from Material UI and building more UI by-hand, this is becoming more of an issue. We are currently just using CSS because that’s what everyone is comfortable with, but we are increasingly dividing the CSS for each component to make a clear path for future migration to CSS-in-JS.</p>
+<h3>Final Words</h3>
+<p>This list is not meant to be an exhaustive list of things to look out for when starting a React project. I’m sure there are plenty of them on the web already. These are the points I don’t see often and have been the most painful for us.</p>      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  document.querySelector('#backBtn').addEventListener('click', e => {
+    if (document.referrer.includes(location.host)) {
+      e.preventDefault();
+
+      return history.back();
+    }
+  });
+</script>
+
+  <section class="footer">
+    <ul>
+      <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
+      <li><a href="https://github.com/squgeim"><i class="icon-github"></i> github</a></li>
+      <li><a href="https://www.linkedin.com/in/squgeim/"><i class="icon-linkedin"></i> linkedIn</a></li>
+      <li><a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile"><i class="icon-stackoverflow"></i> stack overflow</a></li>
+    </ul>
+    <p class="copyright">&copy; Shreya Dahal, MMXX. All rights reserved.</p>
+  </section>
+</body>
+</html>

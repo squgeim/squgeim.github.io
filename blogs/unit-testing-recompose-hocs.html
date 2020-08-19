@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>squgeim's blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
+  <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
+  <link href="/css/style.css" type="text/css" rel="stylesheet" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129163239-1');
+  </script>
+</head>
+
+<body>
+
+<a class="back-button" href="/" id="backBtn"></a>
+
+<h1 class="blog-title">Unit Testing Recompose HOCs</h1>
+<section class="blogs reading-view">
+  <div class="blog-item">
+    <div class="dateline">
+      <span class="date-day">
+        8      </span>
+      <span class="date-month">
+        Jan      </span>
+      <span class="date-year">
+        2018      </span>
+    </div>
+    <div class="blog-card">
+      <div>
+        <p>I am a huge fan of <a href="https://github.com/acdlite/recompose">recompose</a>. It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.</p>
+<p>I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, <em>properly</em>?</p>
+<p>On one hand, since the components become truly pure, a bunch of snapshot tests for the different combination of props pretty much covers them.</p>
+<p>Simple tests for mapStateToProps, mapStateToDispatch and mergeProps covers connect.</p>
+<p>When it comes to an HOC, it gets a little tricky.</p>
+<p>One route would be to do a regular snapshot test for the final component that is actually rendered. But isn’t that repeating the tests we wrote for the pure components? Since we know that they behave properly for a given set of props, we don’t really need to worry about them.</p>
+<p>The most common use case of an HOC, from what I have personally seen, is that it takes an input from the props, fetches new information or somehow transforms that input and includes the output as props to the next component.</p>
+<p>Hence, if we only need to test the behavior of the HOC, what we really care is what set of props it returns for a given set of input props. Or, in case of a redux-based application, what set of actions it dispatches for a given set of input (I haven’t really thought this through for a non-redux application).</p>
+<p>Imagine a component that greets the user with the day and weather.</p>
+<blockquote>
+<p><em>Hello, John! It is a sunny sunday!</em></p>
+</blockquote>
+<p>Better yet, lets write it:</p>
+<pre><code class="language-jsx">import React from 'react';
+import { compose, withProps } from 'recompose';
+
+import { getFirstName } from '../utils/name';
+import { getDayFromDate } from '../utils/date';
+import { getHumanReadableWeather } from '../utils/weather';
+
+const Greeter = ({ firstName, day, weather }) =&gt; (
+  &lt;div&gt;
+      Hello, {firstName}! It is a {weather} {day}!
+  &lt;/div&gt;
+);
+
+/**
+ * This HOC takes a more crude version of currentUser, date and
+ * weather data and maps them to a version that is easily
+ * used in the component. That way, the end component is not
+ * dependent on the implementation detail or API response format
+ * for these information.
+ */
+export const enhance = compose(
+  withProps(props =&gt; ({
+    firstName: getFirstName(props.currentUser.name),
+    day: getDayFromDate(props.date),
+    weather: getHumanReadableWeather(props.weather)
+  }))
+);
+
+export default enhance(Greeter);</code></pre>
+<p>What we need to test now is whether or not the enhancer returns the correct props.</p>
+<p><em>\&lt;sidenote> This may look like a trivial thing to test. The point is, when doing TDD, the tests are written first and we can't (in most cases) forsee how complicated the implementation will get.</em> <em>\&lt;/sidenote></em></p>
+<p>If I didn’t know any better and was forced into writing a test for it, it’d be something like this:</p>
+<pre><code class="language-jsx">import React from 'react';
+import renderer from 'react-test-renderer';
+
+import Greeter from './greeter';
+
+const weatherData = {
+  weather: [{
+    id: 804,
+    main: "clouds",
+    description: "overcast clouds",
+    icon: "04n"
+  }],
+  main: {
+    temp: 289.5,
+    humidity: 89,
+    pressure: 1013,
+    temp_min: 287.04,
+    temp_max: 292.04
+  },
+  wind: {
+    speed: 7.31,
+    deg: 187.002
+  },
+  rain: {
+    '3h': 0
+  },
+  clouds: {
+    all: 92
+  },
+};
+
+it('should render a component with props name, day and weather', () =&gt; {
+  const greeter = renderer.create(
+    &lt;Greeter
+      currentUser={{ name: 'Shreya Dahal' }}
+      date={new Date(1514689615530)}
+      weather={weatherData}
+    /&gt;
+  ).toJSON();
+
+  expect(greeter).toMatchSnapshot();
+});</code></pre>
+<p>Good ‘ol <a href="https://facebook.github.io/jest/docs/en/snapshot-testing.html">snapshot testing</a>.</p>
+<p>There are many problems with this.</p>
+<p>One, we are dependent on what is rendered to infer what our enhancer returned. It just doesn’t sit well with me that we are infering the validity of our logic from a secondary source. A major concern is that the component we rendered may not use all the props passed. This is an issue because the purpose of an HOC is that it could be reused in multiple components; we would have to test the same HOC with multiple components to see the whole picture.</p>
+<p>Two, we can’t do TDD this way. Snapshot testing works for components because we don’t really TDD a view, but writing logic is where TDD shines.</p>
+<p>One fine evening, I was lazily browsing through <a href="https://github.com/acdlite/recompose/blob/master/docs/API.md">recompose’s API docs</a> and saw a method that brought out fantasies in my head. The createSink method:</p>
+<pre><code>createSink(callback: (props: Object) =&gt; void): ReactClass</code></pre>
+<blockquote>
+<p>Creates a component that renders nothing (null) but calls a callback when receiving new props.</p>
+</blockquote>
+<p>This factory function takes a callback and returns a component that renders nothing but calls the callback every time it receives any props. So if this sink component is enhanced with an HOC, the callback can tell us exactly what props the HOC has passed in.</p>
+<p>So we can do something like this to test just the enhancer in the Greeter example above:</p>
+<pre><code class="language-jsx">import React from 'react';
+import renderer from 'react-test-renderer';
+import { createSink } from 'recompose';
+
+import { enhance } from './greeter';
+
+it('should render a component with props name, day and weather', () =&gt; {
+  const sink = createSink(props =&gt; {
+    // This callback will be called for each set of props passed to the sink
+    // We can use `toMatchObject` to test if the given key-value pairs are
+    // present in the props object.
+    expect(props).toMatchObject({
+      name: 'Shreya',
+      day: 'sunday',
+      weather: 'cloudy',
+    });
+  });
+
+  const EnhancedSink = enhance(sink);
+
+  renderer.create(
+    &lt;EnhancedSink
+      currentUser={{
+        name: 'Shreya Dahal',
+      }}
+      date={new Date(1514689615530)}
+      weather={weatherData}
+    /&gt;
+  );
+});</code></pre>
+<p>A simple data in, data out. TDD away!</p>
+<p>Now on to HOCs with side effects: HOCs that dispatch actions in their lifecycle.</p>
+<p>So there’s an HOC that fetches a given contact and includes it in the props to be consumed down the line:</p>
+<pre><code class="language-jsx">import React from 'react';
+import { connect } from 'react-redux';
+import { compose, lifecycle } from 'recompose';
+
+// You'd probably have a proper selector instead
+const getContactById = (state, id) =&gt; id &amp;&amp; state.contacts[id] || {};
+
+const withContact = compose(
+  connect(
+    (state, props) =&gt; ({
+      contact: getContactById(state, props.contactId),
+    }),
+    dispatch =&gt; ({
+      fetchContact(id) {
+        dispatch(contactActions.fetchContact(id))
+      },
+    })
+  ),
+  lifecycle({
+    componentDidMount() {
+      // Fetch details for the given contactId on mount.
+      this.props.fetchContact(this.props.contactId);
+    },
+    componentWillReceiveProps(nextProps) {
+      // Fetch details for the new contactId if the contactId prop has changed.
+      if (nextProps.contactId !== this.props.contactId) {
+        this.props.fetchContact(nextProps.contactId);
+      }
+    }
+  })
+);
+
+export default withContact;</code></pre>
+<p>How do we go about testing this?</p>
+<p>If we need to use connect, it will need to have been wrapped in a Provider with a store. We can use <a href="https://github.com/arnaudbenard/redux-mock-store">redux-mock-store</a> for that. Then, we can easily extract out a list of all the actions that have been dispatched to the mock store.</p>
+<p>Testing actions dispatched in componentDidMount is simple:</p>
+<pre><code class="language-jsx">import React from 'react';
+import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
+import { Provider, connect } from 'react-redux';
+
+import withContact from './withContact';
+import * as contactActions from '../actions/contactActions';
+
+const mockStore = configureStore([]);
+
+// Component that renders nothing. Used as the end point of an HOC.
+const NullComponent = () =&gt; null;
+
+it('should dispatch a FETCH_CONTACT action on mount', () =&gt; {
+
+  const store = mockStore({});
+
+  const EnhancedSink = withContact(NullComponent);
+
+  renderer.create(
+    &lt;Provider store={store}&gt;
+      &lt;EnhancedSink contactId={214} /&gt;
+    &lt;/Provider&gt;
+  );
+
+  expect(store.getActions()).toContainEqual(
+    contactActions.fetchContact(214)
+  );
+});</code></pre>
+<p>Testing componentWillReceiveProps is similar. We can use react-test-renderer's testInstance.update method to rerender the root component with different props, and it will do the right thing: call componentDidMount for new components and componentWillReceiveProps for old components.</p>
+<pre><code class="language-jsx">it('should fetch a new contact when prop is changed', () =&gt; {
+  const store = mockStore({});
+
+  const EnhancedSink = withContact(NullComponent);
+
+  const RootComponent = ({ id }) =&gt; (
+    &lt;Provider store={store}&gt;
+      &lt;EnhancedSink contactId={id} /&gt;
+    &lt;/Provider&gt;
+  );
+
+  // First mount the component with first props
+  const renderInstance = renderer.create(&lt;RootComponent id={123} /&gt;);
+
+  // Clear actions that may have been dispatched during mount.
+  store.clearActions();
+
+  // Then, change the props
+  renderInstance.update(&lt;RootComponent id={456} /&gt;);
+
+  expect(store.getActions()).toContainEqual(
+    contactActions.fetchContact(456)
+  );
+});</code></pre>
+<p>Nice.</p>
+<p>This may seem like a lot of code to test just two lifecycle methods, but these have been deliberately separated like this. The didMount and willReceiveProps tests can go into the same test suite (describe block) and can probably use the same store, EnhancedSink and RootComponent. That would also largely simplify the willReceiveProps block. What I'm saying is there are ways you can do it simpler.</p>
+<p>Either way, a little more time and effort put into writing tests (while the code is simpler, or better yet, when the code isn’t even there) can go a long way and is worth it.</p>      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  document.querySelector('#backBtn').addEventListener('click', e => {
+    if (document.referrer.includes(location.host)) {
+      e.preventDefault();
+
+      return history.back();
+    }
+  });
+</script>
+
+  <section class="footer">
+    <ul>
+      <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
+      <li><a href="https://github.com/squgeim"><i class="icon-github"></i> github</a></li>
+      <li><a href="https://www.linkedin.com/in/squgeim/"><i class="icon-linkedin"></i> linkedIn</a></li>
+      <li><a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile"><i class="icon-stackoverflow"></i> stack overflow</a></li>
+    </ul>
+    <p class="copyright">&copy; Shreya Dahal, MMXX. All rights reserved.</p>
+  </section>
+</body>
+</html>

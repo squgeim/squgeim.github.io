@@ -12,8 +12,8 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
-  <link href="./css/fontello.css" type="text/css" rel="stylesheet" />
-  <link href="./css/style.css" type="text/css" rel="stylesheet" />
+  <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
+  <link href="/css/style.css" type="text/css" rel="stylesheet" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
   <script>
@@ -24,7 +24,9 @@
     gtag('config', 'UA-129163239-1');
   </script>
 </head>
+
 <body>
+
   <section class="landing">
     <img class="main-picture" src="./images/shreya_portrait.jpeg"  alt="Shreya Dahal Portrait"/>
     <p class="hero-text">
@@ -34,7 +36,163 @@
     <h1 class="name">Shreya Dahal</h1>
     <span class="handle">@squgeim</span>
   </section>
-  <section id="blogsContainer" class="blogs"></section>
+
+  <section id="blogsContainer" class="blogs flex-col">
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">1</span>
+        <span class="date-month">Aug</span>
+        <span class="date-year">2019</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="https://soundcloud.com/do-not-merge/learning-from-code-reviews">
+            <h1>Learning from Code Reviews</h1>
+          </a>
+          <p><p>Code review is much more than making sure lint rules are kept in check. In this podcast, Aviskar engages with Romit Amgai, Pratik Karki, and Shreya Dahal to discuss their approach on effective code reviews. They also share their mindset while reviewing code, their experiences, and how it has helped them to grow as professional developers.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">28</span>
+        <span class="date-month">Jun</span>
+        <span class="date-year">2019</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="/blogs/how-is-this-monospace.html">
+            <h1>𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?</h1>
+          </a>
+          <p><p>I was scrolling through Stack Overflow's Job section and an entry caught my eye.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">6</span>
+        <span class="date-month">Sep</span>
+        <span class="date-year">2018</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="https://www.youtube.com/watch?v=UGlC6ICR5Bg">
+            <h1>Evolution of Web as a Platform</h1>
+          </a>
+          <p><p>A brief history of how web went from a tool for displaying pages to a platform for building applications, and what's next.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">18</span>
+        <span class="date-month">Jun</span>
+        <span class="date-year">2018</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="/blogs/date-ing-javascript.html">
+            <h1>Date-ing JavaScript</h1>
+          </a>
+          <p><p>There have been some gotchas with working with Date in JavaScript that we’ve had to learn the hard way around. I’m hoping to blow your brains in a controlled manner now instead of having it blown later by a nasty bug.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">27</span>
+        <span class="date-month">Mar</span>
+        <span class="date-year">2018</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="/blogs/regrets-in-a-1-year-old-react-project.html">
+            <h1>Regrets in a 1-year-old React project</h1>
+          </a>
+          <p><p>The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the “best practices” are challenged and replaced by the hot new thing at an alarming rate.</p>
+<p>It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.</p>
+<p>These are the things we regret doing or not-doing from the get-go.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">8</span>
+        <span class="date-month">Jan</span>
+        <span class="date-year">2018</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="/blogs/unit-testing-recompose-hocs.html">
+            <h1>Unit Testing Recompose HOCs</h1>
+          </a>
+          <p><p>I am a huge fan of <a href="https://github.com/acdlite/recompose">recompose</a>. It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.</p>
+<p>I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, <em>properly</em>?</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">4</span>
+        <span class="date-month">May</span>
+        <span class="date-year">2017</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="https://blog.lftechnology.com/youtube-ad-auto-skipper-ea52d4b2f202">
+            <h1>Youtube Ad Auto-Skipper</h1>
+          </a>
+          <p><p><code>yt ad auto-skipper</code> is a very <em>very</em> simple browser extension that does nothing more than what its name suggests. If the video you are watching has a skippable ad, that ad will be skipped as soon as youtube allows you the option."</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">25</span>
+        <span class="date-month">May</span>
+        <span class="date-year">2015</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="http://squgeim.blogspot.com/2015/05/distro-dillema-of-linux-nerd.html">
+            <h1>Distro Dilemma of a Linux Nerd</h1>
+          </a>
+          <p><p>I first saw a linux distro when I was 12. It was a Red Hat that my cousin had brought to install on my desktop (because he was too scared to do it in his own computer). He installed it using five CDs while I watched Anaconda do it's job. When the computer finally booted, we came to know that the whole of my 40GB hard disk had been wiped.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">22</span>
+        <span class="date-month">Dec</span>
+        <span class="date-year">2013</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="http://squgeim.blogspot.com/2013/12/squremote.html">
+            <h1>squRemote</h1>
+          </a>
+          <p><p>squRemote is a small utility that lets you control the media playing on your computer from you phone. It currently supports Android phone, and Linux and Windows PCs.</p></p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-item">
+      <div class="dateline">
+        <span class="date-day">27</span>
+        <span class="date-month">Oct</span>
+        <span class="date-year">2013</span>
+      </div>
+      <div class="blog-card">
+        <div>
+          <a href="/blogs/real-easy-way-to-transfer-files-from-linux.html">
+            <h1>Real Easy Way To Transfer Files From Linux</h1>
+          </a>
+          <p><p>Windows has Homegroups that make transferring files on a network real easy. This had me wondering: what do we Linux users have when we need to send a huge file to another computer really quick?</p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="footer">
     <ul>
       <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
