@@ -8,10 +8,21 @@ BLOG_DEST := ./blogs
 BLOG_SRC_FILES := $(wildcard $(BLOG_SRC)/*.md)
 BLOG_DEST_FILES := $(patsubst $(BLOG_SRC)/%.md,$(BLOG_DEST)/%.html,$(BLOG_SRC_FILES))
 
-$(PAGE_DEST_DIR)/%.html: $(PAGE_SRC_DIR)/%.php
+FRAGMENTS_DIR := ./src/fragments
+FRAGMENTS_FILES := $(wildcard $(FRAGMENTS_DIR)/*.php)
+
+.DEFAULT_GOAL := all
+.PHONY: clean
+
+all: $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
+
+clean:
+	-rm $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
+
+$(PAGE_DEST_DIR)/%.html: $(PAGE_SRC_DIR)/%.php $(FRAGMENTS_FILES)
 	php $< > $@
 
-$(BLOG_DEST)/%.html: $(BLOG_SRC)/%.md
-	php $(BLOG_SRC)/blog.php $< > $@
+$(PAGE_DEST_DIR)/index.html: $(BLOG_SRC_FILES)
 
-main: $(PAGE_DEST_FILES) $(BLOG_DEST_FILES)
+$(BLOG_DEST)/%.html: $(BLOG_SRC)/%.md $(FRAGMENTS_FILES)
+	php $(BLOG_SRC)/blog.php $< > $@
