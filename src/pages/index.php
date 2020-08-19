@@ -26,7 +26,7 @@ $blogs = Utils\getBlogsList();
       </div>
       <div class="blog-card">
         <div>
-          <a href="<?='/blogs/' . $blog['filename']?>">
+          <a href="<?=$blog['href']?>">
             <h1><?=$blog['title']?></h1>
           </a>
           <p><?=$blog['blurb']?></p>

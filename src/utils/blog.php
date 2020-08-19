@@ -16,6 +16,7 @@ function getBlog($mdContent) {
     "url" => (string)$xml->attributes()->url,
     "tags" => (string)$xml->attributes()->tags,
     "type" => (string)$xml->attributes()->type,
+    "isExternal" => $xml->attributes()->isExternal ? true : false,
     "blurb" => $Parsedown->text((string)$xml),
     "content" => $Parsedown->text($blog)
   );
@@ -36,6 +37,7 @@ function getBlogsList() {
 
     $blog = getBlog(file_get_contents('./src/content/' . $filename));
     $blog['filename'] = substr($filename, 0, strrpos($filename, '.', -1)) . '.html';
+    $blog['href'] = $blog['isExternal'] ? $blog['url'] : '/blogs/' . $blog['filename'];
 
     $blogs[] = $blog;
   }
