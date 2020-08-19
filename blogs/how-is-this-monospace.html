@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>squgeim's blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
+  <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
+  <link href="/css/style.css" type="text/css" rel="stylesheet" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129163239-1');
+  </script>
+</head>
+
+<body>
+
+<a class="back-button" href="/" id="backBtn"></a>
+
+<h1 class="blog-title">𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?</h1>
+<section class="blogs reading-view">
+  <div class="blog-item">
+    <div class="dateline">
+      <span class="date-day">
+        28      </span>
+      <span class="date-month">
+        Jun      </span>
+      <span class="date-year">
+        2019      </span>
+    </div>
+    <div class="blog-card">
+      <div>
+        <p>Recently I was scrolling through Stack Overflow's Jobs section and an entry caught my eye (<small><a href="https://stackoverflow.com/jobs/274306/oozou?so=i&amp;pg=1&amp;offset=15">posting</a></small>):</p>
+<p><img src="/images/blog-assets/stackoverflow_job_posting.png" alt="" /></p>
+<p>The font of the title caught my attention immediately. At first, I was just curious about what the font was (as I am always looking for my next coding font). I applied my usual strategy for when I see an interesting font on the internet: open Developer Inspector and look at the styles for the font's name.</p>
+<p>In this case, the CSS rules said this font must be Arial--but it clearly wasn't.</p>
+<p>On a closer look, there was definitely something weird happening. The text was monospace in the browser title and in the inspector as well. So there must be something about the characters themselves that made the browser render it in monospace everywhere.</p>
+<p>First hint, the first character was not <code>J</code>:</p>
+<pre><code class="language-js">$0.innerText[0] === 'J' // false</code></pre>
+<p>Also, if you tried to get the code points of the characters, something weird happened:</p>
+<pre><code class="language-js">&gt; $0.innerText.charCodeAt(0)
+&lt; 55349
+&gt; $0.innerText.charCodeAt(1)
+&lt; 56953
+&gt; $0.innerText.charCodeAt(2)
+&lt; 55349</code></pre>
+<p>The first and third characters should not be the same.</p>
+<p>When I tried to get the total length of the string, I got:</p>
+<pre><code class="language-js">$0.innerText.length() // 74</code></pre>
+<p>But counting the characters manually gets you 42. Where were the rest of the 32 characters?</p>
+<p>When I looked at the text closer, I realized that <code>(</code>, <code>)</code>, <code>'</code>, <code>-</code>, <code>;</code> and the spaces were not in the same font as the rest of the characters. If we removed these characters we got a count of 32 (42 - 10).</p>
+<p>So that's how it got to 74--the monospace letters were occupying two character spaces: 32 * 2 + 10 = 74. I knew this happened for many Unicode characters, most commonly in emojis. That's why the first and third characters code points were the same.</p>
+<p>Now on to figure out what Unicode characters these were specifically. </p>
+<p>Some Googling to figure out what these codes meant led me to this awesome website: <a href="http://unicode.scarfboy.com">http://unicode.scarfboy.com</a></p>
+<p>You can enter any Unicode code point and get an explanation for it. I could not find anything when I searched for the codes themselves, but pasting the character directly got me a result.</p>
+<p>Turns out the <code>J</code> was actually named <code>MATHEMATICAL MONOSPACE CAPITAL J</code>.</p>
+<p>This opened up a whole world of specialized​ monospace and other fancy characters meant to be used in Mathematical formula​.</p>
+<p><em>Resources:</em></p>
+<p>Full list of Mathematical alphanumeric characters:
+<a href="https://www.unicode.org/charts/PDF/U1D400.pdf">https://www.unicode.org/charts/PDF/U1D400.pdf</a></p>
+<p>A video explaining why Flag emoji are 2 characters by Tom Scott:
+<a href="https://www.youtube.com/watch?v=sTzp76JXsoY">https://www.youtube.com/watch?v=sTzp76JXsoY</a></p>
+<p>A tool to map what you write to these Unicode characters:
+<a href="https://yaytext.com/monospace/">https://yaytext.com/monospace/</a></p>      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  document.querySelector('#backBtn').addEventListener('click', e => {
+    if (document.referrer.includes(location.host)) {
+      e.preventDefault();
+
+      return history.back();
+    }
+  });
+</script>
+
+  <section class="footer">
+    <ul>
+      <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
+      <li><a href="https://github.com/squgeim"><i class="icon-github"></i> github</a></li>
+      <li><a href="https://www.linkedin.com/in/squgeim/"><i class="icon-linkedin"></i> linkedIn</a></li>
+      <li><a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile"><i class="icon-stackoverflow"></i> stack overflow</a></li>
+    </ul>
+    <p class="copyright">&copy; Shreya Dahal, MMXX. All rights reserved.</p>
+  </section>
+</body>
+</html>
