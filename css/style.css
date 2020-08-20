@@ -56,9 +56,13 @@ a img {
     --color-bg-blue: #25688D;
     --color-bg-red: #62242C;
     --color-bg-violet: #270F25;
+    --color-bg-black-violet-gradient: linear-gradient(0deg, var(--color-bg-violet) 50%, black 100%);
+    --color-bg-yellow: rgba(255,255,0,0.1);
+    --color-bg-light-dark: rgba(0,0,0,0.03);
 
-    --color-page-bg: linear-gradient(0deg, var(--color-bg-violet) 50%, black 100%);;
+    --color-page-bg: var(--color-bg-violet);
     --color-white-bg: rgb(249, 242, 237);
+    --color-code-bg: var(--color-bg-light-dark);
 
     --padding-card: 4rem;
     --margin-section: 20rem;
@@ -166,7 +170,7 @@ code {
     font-size: 10em;
     overflow: hidden;
     padding-right: 0.1em;
-    letter-spacing: -0.3em;
+    letter-spacing: -0.2em;
     margin-bottom: -0.16em;
     font-weight: bold;
 }
@@ -209,14 +213,6 @@ code {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-    }
-
-    .blog-item .dateline .date-day {
-        transition: letter-spacing 500ms;
-    }
-
-    .blog-item:hover .dateline .date-day {
-        letter-spacing: -0.2em;
     }
 
     .blog-item .dateline {
@@ -330,23 +326,24 @@ code {
 }
 
 .blog-card pre {
-  background: rgba(0,0,0,0.1);
+  background: var(--color-code-bg);
   margin: 0 calc(-1 * var(--padding-card));
   padding: var(--padding-card);
   width: 100vw;
   max-width: calc(100vw - var(--padding-card) - 1.2rem);
   overflow: scroll;
+  font-size: 1rem;
 }
 
 .reading-view .blog-card>div {
   padding: 1em;
 }
 
-.reading-view a:link {
+.blog-card a:link {
   color: var(--color-bg-blue);
 }
 
-.reading-view a:visited {
+.blog-card a:visited {
   color: var(--color-bg-red);
 }
 
