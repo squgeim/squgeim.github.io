@@ -15,6 +15,7 @@ FRAGMENTS_FILES := $(wildcard $(FRAGMENTS_DIR)/*.php)
 .PHONY: clean
 
 all: $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
+	@./update_service_worker.sh $^
 
 clean:
 	-rm $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
