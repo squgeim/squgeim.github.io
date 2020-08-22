@@ -57,7 +57,7 @@
         <span class="date-month">Aug</span>
         <span class="date-year">2019</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="https://soundcloud.com/do-not-merge/learning-from-code-reviews" data-is-external="1">
         <div>
           <a href="https://soundcloud.com/do-not-merge/learning-from-code-reviews">
             <h1>Learning from Code Reviews</h1>
@@ -72,7 +72,7 @@
         <span class="date-month">Jun</span>
         <span class="date-year">2019</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="/blogs/how-is-this-monospace.html" data-is-external="">
         <div>
           <a href="/blogs/how-is-this-monospace.html">
             <h1>𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?</h1>
@@ -88,7 +88,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Sep</span>
         <span class="date-year">2018</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="https://www.youtube.com/watch?v=UGlC6ICR5Bg" data-is-external="1">
         <div>
           <a href="https://www.youtube.com/watch?v=UGlC6ICR5Bg">
             <h1>Evolution of Web as a Platform</h1>
@@ -103,7 +103,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Jun</span>
         <span class="date-year">2018</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="/blogs/date-ing-javascript.html" data-is-external="">
         <div>
           <a href="/blogs/date-ing-javascript.html">
             <h1>Date-ing JavaScript</h1>
@@ -118,7 +118,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Mar</span>
         <span class="date-year">2018</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="/blogs/regrets-in-a-1-year-old-react-project.html" data-is-external="">
         <div>
           <a href="/blogs/regrets-in-a-1-year-old-react-project.html">
             <h1>Regrets in a 1-year-old React project</h1>
@@ -135,7 +135,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Jan</span>
         <span class="date-year">2018</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="/blogs/unit-testing-recompose-hocs.html" data-is-external="">
         <div>
           <a href="/blogs/unit-testing-recompose-hocs.html">
             <h1>Unit Testing Recompose HOCs</h1>
@@ -151,7 +151,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">May</span>
         <span class="date-year">2017</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="https://blog.lftechnology.com/youtube-ad-auto-skipper-ea52d4b2f202" data-is-external="1">
         <div>
           <a href="https://blog.lftechnology.com/youtube-ad-auto-skipper-ea52d4b2f202">
             <h1>Youtube Ad Auto-Skipper</h1>
@@ -166,7 +166,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">May</span>
         <span class="date-year">2015</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="http://squgeim.blogspot.com/2015/05/distro-dillema-of-linux-nerd.html" data-is-external="1">
         <div>
           <a href="http://squgeim.blogspot.com/2015/05/distro-dillema-of-linux-nerd.html">
             <h1>Distro Dilemma of a Linux Nerd</h1>
@@ -181,7 +181,7 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Dec</span>
         <span class="date-year">2013</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="http://squgeim.blogspot.com/2013/12/squremote.html" data-is-external="1">
         <div>
           <a href="http://squgeim.blogspot.com/2013/12/squremote.html">
             <h1>squRemote</h1>
@@ -196,9 +196,9 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
         <span class="date-month">Oct</span>
         <span class="date-year">2013</span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="http://squgeim.blogspot.com/2013/10/real-easy-way-to-transfer-files-from.html" data-is-external="1">
         <div>
-          <a href="/blogs/real-easy-way-to-transfer-files-from-linux.html">
+          <a href="http://squgeim.blogspot.com/2013/10/real-easy-way-to-transfer-files-from.html">
             <h1>Real Easy Way To Transfer Files From Linux</h1>
           </a>
           <p><p>Windows has Homegroups that make transferring files on a network real easy. This had me wondering: what do we Linux users have when we need to send a huge file to another computer really quick?</p></p>
@@ -206,6 +206,20 @@ text looked like it was in a monospace font--but it wasn't. I went down a rabbit
       </div>
     </div>
   </section>
+
+<script>
+  document.querySelectorAll('.blog-card').forEach(elem => {
+    const href = elem.dataset.href;
+
+    elem.addEventListener('click', e => {
+      if (!href) {
+        return;
+      }
+
+      document.location.href = href;
+    });
+  });
+</script>
 
   <section class="footer">
     <ul>

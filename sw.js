@@ -1,4 +1,4 @@
-const CACHE_NAME = '6b809a037fc8d704111c243df8cf1ba4';
+const CACHE_NAME = 'a64ddbb2efecfd99c92fb478ff962020';
 const FILES = ['blogs/date-ing-javascript.html','blogs/distro-dilemma-of-a-linux-nerd.html','blogs/evolution-of-web-as-a-platform.html','blogs/how-is-this-monospace.html','blogs/learning-from-code-reviews.html','blogs/real-easy-way-to-transfer-files-from-linux.html','blogs/regrets-in-a-1-year-old-react-project.html','blogs/squremote.html','blogs/unit-testing-recompose-hocs.html','blogs/youtube-ad-auto-skipper.html','index.html'];
 
 self.addEventListener('install', e => {

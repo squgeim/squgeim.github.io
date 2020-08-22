@@ -24,7 +24,7 @@ $blogs = Utils\getBlogsList();
         <span class="date-month"><?=$blog['date']->format("M")?></span>
         <span class="date-year"><?=$blog['date']->format("Y")?></span>
       </div>
-      <div class="blog-card">
+      <div class="blog-card cursor-pointer" data-href="<?=$blog['href']?>" data-is-external="<?=$blog['isExternal']?>">
         <div>
           <a href="<?=$blog['href']?>">
             <h1><?=$blog['title']?></h1>
@@ -35,5 +35,19 @@ $blogs = Utils\getBlogsList();
     </div>
 <?php endforeach; ?>
   </section>
+
+<script>
+  document.querySelectorAll('.blog-card').forEach(elem => {
+    const href = elem.dataset.href;
+
+    elem.addEventListener('click', e => {
+      if (!href) {
+        return;
+      }
+
+      document.location.href = href;
+    });
+  });
+</script>
 
 <?php include('./src/fragments/footer.php'); ?>
