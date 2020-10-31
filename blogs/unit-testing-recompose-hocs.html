@@ -278,7 +278,13 @@ it('should dispatch a FETCH_CONTACT action on mount', () =&gt; {
 });</code></pre>
 <p>Nice.</p>
 <p>This may seem like a lot of code to test just two lifecycle methods, but these have been deliberately separated like this. The didMount and willReceiveProps tests can go into the same test suite (describe block) and can probably use the same store, EnhancedSink and RootComponent. That would also largely simplify the willReceiveProps block. What I'm saying is there are ways you can do it simpler.</p>
-<p>Either way, a little more time and effort put into writing tests (while the code is simpler, or better yet, when the code isn’t even there) can go a long way and is worth it.</p>      </div>
+<p>Either way, a little more time and effort put into writing tests (while the code is simpler, or better yet, when the code isn’t even there) can go a long way and is worth it.</p>              <ul class="tags">
+                                <li>javascript</li>
+                      <li>react</li>
+                      <li>unit-testing</li>
+                      <li>recompose</li>
+                  </ul>
+            </div>
     </div>
   </div>
 </section>
