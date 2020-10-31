@@ -380,7 +380,6 @@ code {
 .blog-title {
   color: white;
   font-size: 4em;
-  text-align: left;
   margin-top: var(--margin-section);
   line-height: 1em;
   text-align: center;

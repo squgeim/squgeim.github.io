@@ -25,6 +25,16 @@ $blog = Utils\getBlog(file_get_contents($argv[1]));
     <div class="blog-card">
       <div>
         <?=$blog['content']?>
+      <?php if (count($blog['tags']) > 0 || $blog['isExternal']): ?>
+        <ul class="tags">
+          <?php if ($blog['isExternal']): ?>
+            <li class="tag-external"><?=$blog['externalSite']?><i class="icon-link-ext"></i></li>
+          <?php endif; ?>
+          <?php foreach($blog['tags'] as $tag): ?>
+            <li><?=$tag?></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
       </div>
     </div>
   </div>
