@@ -5,6 +5,7 @@
     type="video"
     isExternal="true"
     externalSite="youtube"
+    tags="talk,history,html5,es6"
 >
 A brief history of how web went from a tool for displaying pages to a platform for building applications, and what's next.
 </Blog>
