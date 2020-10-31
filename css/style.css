@@ -212,6 +212,31 @@ code {
     font-size: var(--font-size-large);
 }
 
+.blog-card .tags {
+    margin-top: calc(0.75 * var(--padding-card));
+    margin-bottom: calc(-0.5 * var(--padding-card));
+}
+
+.blog-card .tags li {
+    background: rgba(255,255,255,0.5);
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 3px;
+    border: 1px solid palevioletred;
+    color: palevioletred;
+    font-size: var(--font-size-small);
+    font-family: var(--font-mono);
+}
+
+.blog-card .tags .tag-external i {
+    background: palevioletred;
+    color: white;
+    margin-right: -5px;
+    margin-left: 5px;
+    display: inline-block;
+    padding: 0 2px;
+}
+
 @media (min-width: 768px) {
     .blog-item {
         display: flex;

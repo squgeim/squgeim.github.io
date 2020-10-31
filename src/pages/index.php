@@ -30,6 +30,16 @@ $blogs = Utils\getBlogsList();
             <h1><?=$blog['title']?></h1>
           </a>
           <p><?=$blog['blurb']?></p>
+        <?php if (count($blog['tags']) > 0 || $blog['isExternal']): ?>
+          <ul class="tags">
+            <?php if ($blog['isExternal']): ?>
+              <li class="tag-external"><?=$blog['externalSite']?><i class="icon-link-ext"></i></li>
+            <?php endif; ?>
+            <?php foreach($blog['tags'] as $tag): ?>
+              <li><?=$tag?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
         </div>
       </div>
     </div>

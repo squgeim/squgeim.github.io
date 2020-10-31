@@ -10,13 +10,16 @@ function getBlog($mdContent) {
 
   $Parsedown = new \Parsedown();
 
+  $tags = array_filter(explode(',', (string)$xml->attributes()->tags));
+
   return array(
     "title" => (string)$xml->attributes()->title,
     "date" => new \DateTime((string)$xml->attributes()->publishedDate),
     "url" => (string)$xml->attributes()->url,
-    "tags" => (string)$xml->attributes()->tags,
+    "tags" => $tags,
     "type" => (string)$xml->attributes()->type,
     "isExternal" => $xml->attributes()->isExternal ? true : false,
+    "externalSite" => (string)$xml->attributes()->externalSite,
     "blurb" => $Parsedown->text((string)$xml),
     "content" => $Parsedown->text($blog)
   );
