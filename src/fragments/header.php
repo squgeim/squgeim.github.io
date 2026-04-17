@@ -11,7 +11,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet" type="text/css">
   <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
   <link href="/css/style.css" type="text/css" rel="stylesheet" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -39,3 +39,12 @@
 </head>
 
 <body>
+<nav class="site-nav">
+  <a class="nav-name" href="/">squgeim</a>
+  <div class="nav-links">
+    <a href="mailto:shreyadahal@gmail.com" title="Email"><i class="icon-mail"></i></a>
+    <a href="https://github.com/squgeim" title="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
+    <a href="https://www.linkedin.com/in/squgeim/" title="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
+    <a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile" title="Stack Overflow" target="_blank" rel="noopener"><i class="icon-stackoverflow"></i></a>
+  </div>
+</nav>
