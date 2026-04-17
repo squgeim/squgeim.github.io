@@ -1,0 +1,15 @@
+FROM php:8.3-cli
+
+RUN apt-get update && apt-get install -y \
+    entr \
+    make \
+    --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+EXPOSE 8080
+
+COPY docker/dev-entrypoint.sh /dev-entrypoint.sh
+RUN chmod +x /dev-entrypoint.sh
+
+ENTRYPOINT ["/dev-entrypoint.sh"]

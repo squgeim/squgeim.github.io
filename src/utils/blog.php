@@ -2,31 +2,31 @@
 namespace Utils;
 
 include('./vendor/parsedown/Parsedown.php');
+include('./vendor/spyc/Spyc.php');
 
 function getBlog($mdContent) {
-  list($desc, $blog) = explode("\n\n\n", $mdContent, 2);
-
-  $xml = new \SimpleXMLElement($desc);
+  preg_match('/^---\n(.*?)\n---\n?(.*)/s', $mdContent, $matches);
+  $meta = \Spyc::YAMLLoadString($matches[1]);
+  $body = trim($matches[2] ?? '');
 
   $Parsedown = new \Parsedown();
-
-  $tags = array_filter(explode(',', (string)$xml->attributes()->tags));
+  $externalUrl = $meta['external_url'] ?? '';
 
   return array(
-    "title" => (string)$xml->attributes()->title,
-    "date" => new \DateTime((string)$xml->attributes()->publishedDate),
-    "url" => (string)$xml->attributes()->url,
-    "tags" => $tags,
-    "type" => (string)$xml->attributes()->type,
-    "isExternal" => $xml->attributes()->isExternal ? true : false,
-    "externalSite" => (string)$xml->attributes()->externalSite,
-    "blurb" => $Parsedown->text((string)$xml),
-    "content" => $Parsedown->text($blog)
+    "title"        => $meta['title'],
+    "date"         => new \DateTime((string)$meta['date']),
+    "url"          => $externalUrl,
+    "tags"         => $meta['tags'] ?? [],
+    "type"         => $meta['type'] ?? '',
+    "isExternal"   => !empty($externalUrl),
+    "externalSite" => $meta['external_site'] ?? '',
+    "blurb"        => $Parsedown->text($meta['description'] ?? ''),
+    "content"      => $Parsedown->text($body),
   );
 }
 
 function sortingFunc($a, $b) {
-  return $a['date'] < $b['date'];
+  return $b['date']->getTimestamp() <=> $a['date']->getTimestamp();
 }
 
 function getBlogsList() {
