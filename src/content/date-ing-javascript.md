@@ -1,12 +1,12 @@
-<Blog
-    title="Date-ing JavaScript"
-    publishedDate="2018-06-18"
-    url="https://dev.to/squgeim/date-ing-javascript-30k2"
-    tags="javascript,date,gotchas"
->
-There have been some gotchas with working with Date in JavaScript that we’ve had to learn the hard way around. I’m hoping to blow your brains in a controlled manner now instead of having it blown later by a nasty bug.
-</Blog>
-
+---
+title: "Date-ing JavaScript"
+date: "2018-06-18"
+tags:
+  - javascript
+  - date
+  - gotchas
+description: "There have been some gotchas with working with Date in JavaScript that we’ve had to learn the hard way around. I’m hoping to blow your brains in a controlled manner now instead of having it blown later by a nasty bug."
+---
 
 _This blog was originally published at [Leapfrog Technology](https://blog.lftechnology.com/date-ing-javascript-6203650b752c)._
 
@@ -36,7 +36,7 @@ It then goes on to say that `Date.prototype.parse` will be implementation depend
 
 Basically, if the string you are trying to parse is not in the format given by `Date.toString()` or `Date.toUTCString()`, you are screwed.
 
-Chrome just wants to be extra and goes out of its way to support more formats; but what it really does is give the developers a false sense of security that their code works. This has given us enough “b..but… it works on my machine” situations.
+Chrome just wants to be extra and goes out of its way to support more formats; but what it really does is give the developers a false sense of security that their code works. This has given us enough "b..but… it works on my machine" situations.
 
 *Fine, then what formats does new Date() properly support?*
 

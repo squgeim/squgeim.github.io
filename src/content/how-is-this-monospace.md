@@ -1,13 +1,13 @@
-<Blog
-  title="𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?"
-  publishedDate="2019-06-28"
-  url="https://dev.to/squgeim/-3pig"
-  tags="unicode,fonts,javascript,html"
->
-I was scrolling through Stack Overflow's Job section and an entry caught my eye. The
-text looked like it was in a monospace font--but it wasn't. I went down a rabbit hole trying to figure out what was happening.
-</Blog>
-
+---
+title: "𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?"
+date: "2019-06-28"
+tags:
+  - unicode
+  - fonts
+  - javascript
+  - html
+description: "I was scrolling through Stack Overflow's Job section and an entry caught my eye. The text looked like it was in a monospace font--but it wasn't. I went down a rabbit hole trying to figure out what was happening."
+---
 
 Recently I was scrolling through Stack Overflow's Jobs section and an entry caught my eye (<small>[posting](https://stackoverflow.com/jobs/274306/oozou?so=i&pg=1&offset=15)</small>):
 

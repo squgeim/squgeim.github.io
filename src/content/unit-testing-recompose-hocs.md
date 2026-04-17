@@ -1,16 +1,18 @@
-<Blog
-  title="Unit Testing Recompose HOCs"
-  publishedDate="2018-01-08"
-  url="https://dev.to/squgeim/unit-testing-recompose-hocs-3nh4"
-  tags="javascript,react,unit-testing,recompose"
->
-I am a huge fan of [recompose](https://github.com/acdlite/recompose). It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.
+---
+title: "Unit Testing Recompose HOCs"
+date: "2018-01-08"
+tags:
+  - javascript
+  - react
+  - unit-testing
+  - recompose
+description: |
+  I am a huge fan of [recompose](https://github.com/acdlite/recompose). It lets us write pure, functional, "dumb" components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.
 
-I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, _properly_?
-</Blog>
+  I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, _properly_?
+---
 
-
-I am a huge fan of [recompose](https://github.com/acdlite/recompose). It lets us write pure, functional, “dumb” components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.
+I am a huge fan of [recompose](https://github.com/acdlite/recompose). It lets us write pure, functional, "dumb" components, by allowing us to dump all the logic inside any of the huge collection of HOCs it provides. It’s awesome.
 
 I’ve been using this a lot and there’s this thing that has always been bugging me: how do you test them, _properly_?
 

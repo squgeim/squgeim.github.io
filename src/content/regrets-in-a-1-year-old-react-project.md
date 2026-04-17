@@ -1,18 +1,20 @@
-<Blog
-  title="Regrets in a 1-year-old React project"
-  publishedDate="2018-03-27"
-  url="https://dev.to/squgeim/regrets-in-a-1-year-old-react-project-4j7j"
-  tags="javascript-framework,redux,react,material-ui"
->
-The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the “best practices” are challenged and replaced by the hot new thing at an alarming rate.
+---
+title: "Regrets in a 1-year-old React project"
+date: "2018-03-27"
+tags:
+  - javascript-framework
+  - redux
+  - react
+  - material-ui
+description: |
+  The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the "best practices" are challenged and replaced by the hot new thing at an alarming rate.
 
-It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.
+  It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.
 
-These are the things we regret doing or not-doing from the get-go.
-</Blog>
+  These are the things we regret doing or not-doing from the get-go.
+---
 
-
-The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the “best practices” are challenged and replaced by the hot new thing at an alarming rate.
+The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the "best practices" are challenged and replaced by the hot new thing at an alarming rate.
 
 It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.
 
@@ -38,9 +40,9 @@ An easy way to get around this is to define clear [PropTypes](https://reactjs.or
 
 ### **3. Ceding too much control to a library**
 
-“We’re just building a quick MVP to get going. We don’t need to spend much time with fancy designs, let’s just use a popular component library” — that’s how most projects start, and before you know it you are serving thousands of users and guess what, a fancy design becomes a must have.
+"We’re just building a quick MVP to get going. We don’t need to spend much time with fancy designs, let’s just use a popular component library" — that’s how most projects start, and before you know it you are serving thousands of users and guess what, a fancy design becomes a must have.
 
-We started the project with [Material UI](http://www.material-ui.com/#/). It was awesome. You have every component you’ll ever need, you have fancy animations and it is easy to build with. Then, we outgrew our “MVP” phase. We have new complex features that can’t be done with the simple Material UI components. The small performance costs of using inline style start adding up.
+We started the project with [Material UI](http://www.material-ui.com/#/). It was awesome. You have every component you’ll ever need, you have fancy animations and it is easy to build with. Then, we outgrew our "MVP" phase. We have new complex features that can’t be done with the simple Material UI components. The small performance costs of using inline style start adding up.
 
 Then, the version of Material UI we were using got discontinued. The new version would be a rewrite and would bring much needed performance improvements. All the issues in GitHub for the older version of Material UI [were closed](https://github.com/mui-org/material-ui/issues?q=label%3Av0.x+is%3Aclosed).
 
