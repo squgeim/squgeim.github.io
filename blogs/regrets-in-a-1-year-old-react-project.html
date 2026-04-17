@@ -11,7 +11,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FFFFFF">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Lato&family=Montserrat&family=Raleway:wght@600&display=swap" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet" type="text/css">
   <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
   <link href="/css/style.css" type="text/css" rel="stylesheet" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -39,23 +39,29 @@
 </head>
 
 <body>
+<nav class="site-nav">
+  <a class="nav-name" href="/">squgeim</a>
+  <div class="nav-links">
+    <a href="mailto:shreyadahal@gmail.com" title="Email"><i class="icon-mail"></i></a>
+    <a href="https://github.com/squgeim" title="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
+    <a href="https://www.linkedin.com/in/squgeim/" title="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
+    <a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile" title="Stack Overflow" target="_blank" rel="noopener"><i class="icon-stackoverflow"></i></a>
+  </div>
+</nav>
 
 <a class="back-button" href="/" id="backBtn"></a>
 
 <h1 class="blog-title">Regrets in a 1-year-old React project</h1>
-<section class="blogs reading-view">
-  <div class="blog-item">
-    <div class="dateline">
-      <span class="date-day">
-        27      </span>
-      <span class="date-month">
-        Mar      </span>
-      <span class="date-year">
-        2018      </span>
-    </div>
-    <div class="blog-card">
-      <div>
-        <p>The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the "best practices" are challenged and replaced by the hot new thing at an alarming rate.</p>
+
+<div class="reading-view">
+  <section class="blogs">
+    <div class="blog-item">
+      <div class="blog-card">
+        <div class="blog-card-meta">
+          <span class="blog-card-date">27 Mar 2018</span>
+        </div>
+        <div>
+          <p>The JavaScript ecosystem has become scary. There are over 600,000 packages in NPM to choose from, with over 600 added every day, and the "best practices" are challenged and replaced by the hot new thing at an alarming rate.</p>
 <p>It is natural to want to avoid jumping on every new thing and choose what is needed when starting a new project. That is what we did when we started out on a project.</p>
 <p>These are the things we regret doing or not-doing from the get-go:</p>
 <h3><strong>1. Not Using Selectors</strong></h3>
@@ -80,35 +86,29 @@
 <p>The reason we didn’t have CSS-in-JS from the beginning is that we didn’t need it at the time, and whatever little performance cost we added with inline styles was still shadowed by what Material UI was doing. It was also because the CSS-in-JS community conflicted a few ways of doing things and a de facto library had not yet appeared (still hasn’t).</p>
 <p>Now that we are migrating away from Material UI and building more UI by-hand, this is becoming more of an issue. We are currently just using CSS because that’s what everyone is comfortable with, but we are increasingly dividing the CSS for each component to make a clear path for future migration to CSS-in-JS.</p>
 <h3>Final Words</h3>
-<p>This list is not meant to be an exhaustive list of things to look out for when starting a React project. I’m sure there are plenty of them on the web already. These are the points I don’t see often and have been the most painful for us.</p>              <ul class="tags">
-                                <li>javascript-framework</li>
-                      <li>redux</li>
-                      <li>react</li>
-                      <li>material-ui</li>
-                  </ul>
-            </div>
+<p>This list is not meant to be an exhaustive list of things to look out for when starting a React project. I’m sure there are plenty of them on the web already. These are the points I don’t see often and have been the most painful for us.</p>                    <ul class="tags">
+                                      <li>javascript-framework</li>
+                          <li>redux</li>
+                          <li>react</li>
+                          <li>material-ui</li>
+                      </ul>
+                  </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <script type="text/javascript">
   document.querySelector('#backBtn').addEventListener('click', e => {
     if (document.referrer.includes(location.host)) {
       e.preventDefault();
-
       return history.back();
     }
   });
 </script>
 
-  <section class="footer">
-    <ul>
-      <li><a href="mailto:shreyadahal@gmail.com"><i class="icon-mail"></i> shreyadahal@gmail.com</a></li>
-      <li><a href="https://github.com/squgeim"><i class="icon-github"></i> github</a></li>
-      <li><a href="https://www.linkedin.com/in/squgeim/"><i class="icon-linkedin"></i> linkedIn</a></li>
-      <li><a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile"><i class="icon-stackoverflow"></i> stack overflow</a></li>
-    </ul>
+  <footer class="footer">
     <p class="copyright">&copy; Shreya Dahal, MMXX. All rights reserved.</p>
-  </section>
+  </footer>
 </body>
 </html>
