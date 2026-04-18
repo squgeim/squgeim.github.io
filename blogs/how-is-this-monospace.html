@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet" type="text/css">
   <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
   <link href="/css/style.css" type="text/css" rel="stylesheet" />
+  <link href="/css/prism.css" type="text/css" rel="stylesheet" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
   <script>
@@ -48,8 +49,6 @@
     <a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile" title="Stack Overflow" target="_blank" rel="noopener"><i class="icon-stackoverflow"></i></a>
   </div>
 </nav>
-
-<a class="back-button" href="/" id="backBtn"></a>
 
 <h1 class="blog-title">𝙷𝚘𝚠 𝚒𝚜 𝚝𝚑𝚒𝚜 𝚖𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎?</h1>
 
@@ -104,15 +103,7 @@
   </section>
 </div>
 
-<script type="text/javascript">
-  document.querySelector('#backBtn').addEventListener('click', e => {
-    if (document.referrer.includes(location.host)) {
-      e.preventDefault();
-      return history.back();
-    }
-  });
-</script>
-
+<script src="/js/prism.js" defer></script>
   <footer class="footer">
     <p class="copyright">&copy; Shreya Dahal, MMXX. All rights reserved.</p>
   </footer>

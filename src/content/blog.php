@@ -1,6 +1,7 @@
 <?php
 include('./src/utils/blog.php');
 
+$extra_head_links = '<link href="/css/prism.css" type="text/css" rel="stylesheet" />';
 include('./src/fragments/header.php');
 
 $blog = Utils\getBlog(file_get_contents($argv[1]));
@@ -33,4 +34,5 @@ $blog = Utils\getBlog(file_get_contents($argv[1]));
   </section>
 </div>
 
+<script src="/js/prism.js" defer></script>
 <?php include('./src/fragments/footer.php'); ?>
