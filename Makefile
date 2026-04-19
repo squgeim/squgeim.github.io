@@ -19,6 +19,9 @@ PORT := 8080
 all: $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
 	@./update_service_worker.sh $^
 
+$(BLOG_DEST):
+	mkdir -p $@
+
 clean:
 	-rm $(BLOG_DEST_FILES) $(PAGE_DEST_FILES)
 
@@ -27,7 +30,7 @@ $(PAGE_DEST_DIR)/%.html: $(PAGE_SRC_DIR)/%.php $(FRAGMENTS_FILES)
 
 $(PAGE_DEST_DIR)/index.html: $(BLOG_SRC_FILES)
 
-$(BLOG_DEST)/%.html: $(BLOG_SRC)/%.md $(FRAGMENTS_FILES)
+$(BLOG_DEST)/%.html: $(BLOG_SRC)/%.md $(FRAGMENTS_FILES) | $(BLOG_DEST)
 	php $(BLOG_SRC)/blog.php $< > $@
 
 DOCKER_IMAGE := php:8.3-cli

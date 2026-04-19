@@ -1,2 +1,5 @@
 *.sublime*
 .idea
+index.html
+blogs/
+src/content/.obsidian/
