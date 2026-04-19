@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
   <meta charset="UTF-8">
   <title>squgeim's blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
   <link href="/css/fontello.css" type="text/css" rel="stylesheet" />
   <link href="/css/style.css" type="text/css" rel="stylesheet" />
   <?php if (isset($extra_head_links)) echo $extra_head_links . "\n"; ?>
+  <script src="/js/theme.js" defer></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129163239-1"></script>
   <script>
@@ -47,5 +49,6 @@
     <a href="https://github.com/squgeim" title="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
     <a href="https://www.linkedin.com/in/squgeim/" title="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
     <a href="https://stackoverflow.com/users/1654226/squgeim?tab=profile" title="Stack Overflow" target="_blank" rel="noopener"><i class="icon-stackoverflow"></i></a>
+    <button id="theme-toggle" class="theme-toggle" title="Switch to light mode" aria-label="Toggle theme">&#9728;</button>
   </div>
 </nav>
